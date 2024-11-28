@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/mode/javascript/javascript.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>< Notepad.js ></h1>
+    <h5>A Simple yet elegant Javascript code editor</h5>
+    <div style="margin-top:100px;display:flex;flex-direction: row;gap:30px;">
+        <div id="editor"></div>
+        <textarea id="consoleOutput"></textarea>
+    </div>
+
+    <script>
+        document.querySelector('#consoleOutput').value ='';
+        // Redirection of console.log to textarea
+        // Redirection of console.log to textarea
+        (function() {
+            const originalLog = console.log;
+            console.log = function(message) {
+                document.querySelector('#consoleOutput').value += message + '\n';
+                originalLog.apply(console, arguments);
+            };
+        })();
+
+        // Initialize CodeMirror editor
+        var editor = CodeMirror(document.getElementById('editor'), {
+            mode: "javascript",
+            theme: "default",
+            lineNumbers: true
+        });
+        document.querySelector('h1').addEventListener('click',()=>{
+
+            const code = editor.getValue();
+            try {
+                document.querySelector('#consoleOutput').value =''
+                const result = eval(code);
+                if (code.includes('this is the best ide!')){
+                    let ma= document.createElement('marquee');
+                    ma.textContent='thanks!'
+                    ma.style.color='red';
+                    document.body.querySelector('.container').appendChild(ma)
+                }
+
+
+
+
+            } catch (error) {
+                console.log('Error: ' + error);
+            }
+        })
+
+    </script>
+
+</div>
+<div style="text-align: center;">
+    <a href="info.html">< How does the IDE work? ></a><a href="https://github.com/that0therGuy">< @that0therguy ></a>
+
+</div>
+</body>
+</html>
