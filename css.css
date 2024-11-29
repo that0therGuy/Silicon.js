@@ -27,12 +27,21 @@ h1,h5,a{
     text-shadow:0 0 35px rgba(182,31,255,.7);
     text-align: center;
 }
+h6{
+    background: linear-gradient(90deg, rgb(207, 255, 205) 0%, rgba(61, 255, 31, 0.8) 100%);
+    color:transparent;
+    background-clip: text;
+    text-shadow:0 0 35px rgba(182,31,255,.7);
+    text-align: center;
+    font-size:15px;
+}
 a{
     margin:10px;
     text-decoration: none;
     transition:all .4s;
     text-align: center;
     font-weight:bold;
+    z-index:9999999999;
 }
 h1{
     transition: all .5s;
@@ -61,12 +70,33 @@ a:hover{
 textarea{
     text-align: center;
     box-shadow:0 0 25px rgba(42, 0, 54, 0.3);
+    width:30vw;
+    height:92%;
+
+
 }
+button{
+
+    border-radius: 5px;
+    border:none;
+    padding:10px;
+    box-shadow:0 0 25px rgba(42, 0, 54, 0.3);
+    color: rgb(154, 86, 255);
+    background: linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%) !important;
+    transition:all .5s;
+}
+button:hover{
+    transform:translateX( 5px);
+    cursor:pointer;
+    filter:grayscale(20%);
+
+}
+
 
 #editor{
     width:30vw;
-    height:50vh;
-
+    height:100%;
+    border-radius: 10px;
 }
 
 
