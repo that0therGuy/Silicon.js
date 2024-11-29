@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Styles</title>
+    <link rel="stylesheet" href="css.css">
+
+</head>
+<body>
+<div class="container" ">
+    <H1 style="margin:25px;">Styles</H1>
+    <div class="fg">
+        <button class="bloom">Extra bloom</button><h6 class="bloomc">False</h6>
+
+    </div>
+
+    <a href="index.html">< Back to editor > </a>
+</div>
+<style>
+    .fg{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap:40px;
+    }
+    @media only screen and (max-width: 600px) {
+        .fg {
+            flex-direction: column;
+            gap:15px;
+        }
+    }
+</style>
+<script src='index.js'></script>
+</body>
+</html>
