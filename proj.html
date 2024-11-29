@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Settings</title>
+  <link rel="stylesheet" href="css.css">
+
+</head>
+<body>
+<div class="container" style="gap:20px;">
+  <H1>Project Settings:</H1>
+
+  <button class="download_js">Download your .js file</button>
+  <button class="download_mjs">Download your .mjs file</button>
+  <button class="download_cjs">Download your .cjs file</button>
+  <a href="index.html">< Back to editor > </a>
+</div>
+<script>
+  function download(code,file){
+    let a= document.createElement('a');
+    a.setAttribute('href','data:text/plain;charset:utf-8,'+encodeURIComponent(code));
+    a.setAttribute('download',`index.${file}`);
+    a.style.display='none';
+    document.body.append(a);
+    a.click();
+    document.body.removeChild(a);
+
+  }
+  document.querySelector('.download_js').addEventListener('click',()=>{
+    download(localStorage.getItem('code'),'js')
+  })
+  document.querySelector('.download_mjs').addEventListener('click',()=>{
+    download(localStorage.getItem('code'),'mjs')
+  })
+  document.querySelector('.download_cjs').addEventListener('click',()=>{
+    download(localStorage.getItem('code'),'cjs')
+  })
+</script>
+</body>
+</html>
