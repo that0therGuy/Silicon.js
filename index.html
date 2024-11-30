@@ -32,7 +32,7 @@
 </div>
 <script src='index.js'></script>
 <script>
-    // Function to adjust CodeMirror instance height
+
 
 
     let editor = CodeMirror(document.getElementById('editor'), {
@@ -40,6 +40,7 @@
         theme: "default",
         lineNumbers: true
     });
+
 
 
     editor.setValue(localStorage.getItem('code'));
@@ -84,6 +85,22 @@
         }*/
     }
     checkforbloom()
+    function checkforplain(){
+
+        if (localStorage.getItem('isplain')==='true'){
+
+            document.querySelector('.CodeMirror').style.background='#2d0042';
+
+            document.querySelector('#consoleOutput').style.background='#2d0042';
+
+
+        }else{
+            document.querySelector(".CodeMirror").style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%)';
+
+            document.querySelector("#consoleOutput").style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%)';
+        }
+    }
+    checkforplain()
     document.querySelector('#consoleOutput').style.height= document.querySelector('#editor').style.height;
     document.querySelector('#consoleOutput').value ='';
     // Redirection of console.log to textarea
@@ -124,6 +141,8 @@
         }
 
     })
+
+
 
 
 </script>
