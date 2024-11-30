@@ -100,7 +100,17 @@ button:hover{
     width:30vw;
     height:100%;
     border-radius: 10px;
+    resize: horizontal;
+    overflow: auto;
 }
+.codecontainer{
+    margin-top:100px;
+    display:flex;
+    flex-direction: row;
+    gap:30px;
+}
+
+
 
 
 .CodeMirror-linenumbers{

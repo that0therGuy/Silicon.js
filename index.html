@@ -12,7 +12,7 @@
 <div class="container">
     <h1 class="main">< Notepad.js ></h1>
     <h5>A Simple yet elegant Javascript code editor</h5>
-    <div style="margin-top:100px;display:flex;flex-direction: row;gap:30px;">
+    <div class="codecontainer" >
         <div id="editor"></div>
         <textarea id="consoleOutput"></textarea>
     </div>
@@ -32,12 +32,15 @@
 </div>
 <script src='index.js'></script>
 <script>
+    // Function to adjust CodeMirror instance height
+
 
     let editor = CodeMirror(document.getElementById('editor'), {
         mode: "javascript",
         theme: "default",
         lineNumbers: true
     });
+
 
     editor.setValue(localStorage.getItem('code'));
 
