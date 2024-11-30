@@ -20,6 +20,9 @@ body{
     flex-direction: column;
     gap:5px;
 }
+h1,h5{
+    user-select: none;
+}
 h1,h5,a{
     background: linear-gradient(90deg, rgba(219,219,219,1) 0%, rgba(182,31,255,.8) 100%);
     color:transparent;

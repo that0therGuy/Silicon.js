@@ -38,10 +38,9 @@
         theme: "default",
         lineNumbers: true
     });
-    const savedCode = localStorage.getItem('code');
-    if (savedCode) {
-        editor.setValue(savedCode);
-    }
+
+    editor.setValue(localStorage.getItem('code'));
+
     document.querySelector('a').addEventListener('click',()=>{
 
         localStorage.setItem('code',editor.getValue());
@@ -115,6 +114,12 @@
         } catch (error) {
             console.log('Error: ' + error);
         }
+    })
+    document.querySelector('.main').addEventListener('dblclick',()=>{
+        if (localStorage.getItem('isdbl')==='true'){
+            editor.setValue('')
+        }
+
     })
 
 
