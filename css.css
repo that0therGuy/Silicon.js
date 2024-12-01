@@ -117,6 +117,13 @@ button:hover{
     .codecontainer{
         flex-direction: column;
     }
+    textarea,#editor{
+        width:70vw;
+        max-width:80vw;
+    }
+    #editor{
+        width:76vw;
+    }
 }
 /*z*/
 
