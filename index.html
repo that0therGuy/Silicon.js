@@ -23,12 +23,13 @@
 </div>
 
 <div style="text-align: center;">
-
+    <a href="challenge.html">< Challenge me ></a>
     <a href="info.html">< Info ></a>
     <a href="styles.html">< Styles ></a>
 
     <a class="proj" href="proj.html">< Project Settings ></a>
     <a href="https://github.com/that0therGuy">< @that0therguy ></a>
+
 
 </div>
 <script src='index.js'></script>
@@ -46,10 +47,7 @@
 
     editor.setValue(localStorage.getItem('code'));
 
-    document.querySelector('a').addEventListener('click',()=>{
 
-        localStorage.setItem('code',editor.getValue());
-    })
 
     function checkforbloom(){
 
@@ -117,7 +115,7 @@
     // Initialize CodeMirror editor
 
     document.querySelector('.main').addEventListener('click',()=>{
-
+        localStorage.setItem('code',editor.getValue());
         const code = editor.getValue();
         try {
             document.querySelector('#consoleOutput').value =''
