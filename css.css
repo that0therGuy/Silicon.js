@@ -113,7 +113,11 @@ button:hover{
     flex-direction: row;
     gap:30px;
 }
-
+@media only screen and (max-width: 600px) {
+    .codecontainer{
+        flex-direction: column;
+    }
+}
 
 
 
