@@ -25,7 +25,38 @@
   <a href="index.html">< Back to editor > </a>
 </div>
 <script>
+  function checkforfont(){
 
+    if (localStorage.getItem('font')==1){
+      const allElements = document.querySelectorAll('*');
+
+
+      allElements.forEach(element => {
+        element.style.fontFamily='space mono'
+      });
+
+
+
+    }else if(localStorage.getItem('font')==2){
+      const allElements = document.querySelectorAll('*');
+
+
+      allElements.forEach(element => {
+        element.style.fontFamily='parkinsans'
+      });
+
+    }
+    else{
+      const allElements = document.querySelectorAll('*');
+
+
+      allElements.forEach(element => {
+        element.style.fontFamily='jetbrains mono'
+      });
+
+    }
+  }
+  checkforfont()
   let h6 = document.querySelector(".dlete");
   if (localStorage.getItem('isdbl')==null){
     isdbl= false

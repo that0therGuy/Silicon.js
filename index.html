@@ -35,7 +35,14 @@
 <script src='index.js'></script>
 <script>
 
+    if (localStorage.getItem('code')==null){
 
+        localStorage.setItem('code','console.log(Math.PI)')
+    }
+    if (localStorage.getItem('font')==null){
+
+        localStorage.setItem('font','3')
+    }
 
     let editor = CodeMirror(document.getElementById('editor'), {
         mode: "javascript",
@@ -125,6 +132,10 @@
                 ma.textContent='thanks!'
                 ma.style.color='red';
                 document.body.querySelector('.container').appendChild(ma)
+                document.querySelector('h1').style.color='red';
+                document.querySelector('h5').style.color='red';
+                document.querySelector('h5').innerHTML+= ' *blushing*';
+
             }
 
 
@@ -140,6 +151,38 @@
         }
 
     })
+    function checkforfont(){
+
+        if (localStorage.getItem('font')==1){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='space mono'
+            });
+
+
+
+        }else if(localStorage.getItem('font')==2){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='parkinsans'
+            });
+
+        }
+        else{
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='jetbrains mono'
+            });
+
+        }
+    }
+    checkforfont()
 
 
 

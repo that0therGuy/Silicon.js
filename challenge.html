@@ -35,6 +35,38 @@
       document.querySelector('h5').innerHTML=challenge;
       localStorage.setItem('challenge',challenge)
     })
+    function checkforfont(){
+
+      if (localStorage.getItem('font')==1){
+        const allElements = document.querySelectorAll('*');
+
+
+        allElements.forEach(element => {
+          element.style.fontFamily='space mono'
+        });
+
+
+
+      }else if(localStorage.getItem('font')==2){
+        const allElements = document.querySelectorAll('*');
+
+
+        allElements.forEach(element => {
+          element.style.fontFamily='parkinsans'
+        });
+
+      }
+      else{
+        const allElements = document.querySelectorAll('*');
+
+
+        allElements.forEach(element => {
+          element.style.fontFamily='jetbrains mono'
+        });
+
+      }
+    }
+    checkforfont()
   </script>
   <style>
     h5{

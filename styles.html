@@ -17,11 +17,15 @@
     <div class="plain">
         <button class="plainb">Plain coloured Text Editor</button> <h6 class="plainc">False</h6>
     </div>
+    <div class="font">
+        <button class="fontb">Change Font</button><h5 class="fontc">Jetbrains Mono</h5>
+    </div>
+    <h5>Still dont like the style, change the website's look and feel using javascript!</h5>
 
     <a href="index.html">< Back to editor > </a>
 </div>
 <style>
-    .fg,.plain{
+    .fg,.plain,.font{
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -89,6 +93,7 @@
     }
 
 
+
     document.querySelector('.bloom').addEventListener('click', () => {
         isbloom = !isbloom;
         localStorage.setItem('bloom', isbloom);
@@ -99,6 +104,79 @@
 
 
     updateH6State();
+
+    let font=''
+    if (localStorage.getItem('font')!=null) {
+        font = localStorage.getItem('font');
+    }else{
+        font=3
+    }
+
+
+    let h6111 = document.querySelector(".fontc");
+    function updateH6State4() {
+        if (font==1) {
+            h6111.innerHTML = 'Space Mono';
+        }
+        else if(font==2){
+            h6111.innerHTML = 'Parkinsans';
+
+        }
+        else {
+
+            h6111.innerHTML = 'Jetbrains';
+        }
+
+    }
+
+
+    document.querySelector('.fontb').addEventListener('click', () => {
+        if(font==3){
+            font=1
+        }else{
+            font++
+        }
+        localStorage.setItem('font', font);
+        checkforfont()
+
+
+        updateH6State4();
+    });
+
+
+    updateH6State4();
+    function checkforfont(){
+
+        if (localStorage.getItem('font')==1){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='space mono'
+            });
+
+
+
+        }else if(localStorage.getItem('font')==2){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='parkinsans'
+            });
+
+        }
+        else{
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='jetbrains mono'
+            });
+
+        }
+    }
+    checkforfont()
 
 </script>
 </body>
