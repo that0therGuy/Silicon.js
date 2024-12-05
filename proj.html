@@ -53,6 +53,24 @@
       });
 
     }
+    else if(localStorage.getItem('font')==4){
+      const allElements = document.querySelectorAll('*');
+
+
+      allElements.forEach(element => {
+        element.style.fontFamily='lobster'
+      });
+
+    }
+    else if(localStorage.getItem('font')==5){
+      const allElements = document.querySelectorAll('*');
+
+
+      allElements.forEach(element => {
+        element.style.fontFamily='roboto mono'
+      });
+
+    }
     else{
       const allElements = document.querySelectorAll('*');
 

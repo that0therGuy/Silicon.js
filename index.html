@@ -178,8 +178,6 @@
             allElements.forEach(element => {
                 element.style.fontFamily='space mono'
             });
-            document.querySelector('#editor').fontFamily='space mono'
-            document.querySelector('.CodeMirror').fontFamily='space mono'
 
 
 
@@ -190,8 +188,24 @@
             allElements.forEach(element => {
                 element.style.fontFamily='parkinsans'
             });
-            document.querySelector('#editor').fontFamily='parkinsans'
-            document.querySelector('.CodeMirror').fontFamily='parkinsans'
+
+        }
+        else if(localStorage.getItem('font')==4){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='lobster'
+            });
+
+        }
+        else if(localStorage.getItem('font')==5){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='roboto mono'
+            });
 
         }
         else{

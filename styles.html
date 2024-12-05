@@ -122,6 +122,14 @@
             h6111.innerHTML = 'Parkinsans';
 
         }
+        else if(font==4){
+            h6111.innerHTML = 'Lobster';
+
+        }
+        else if(font==5){
+            h6111.innerHTML = 'Roboto Mono';
+
+        }
         else {
 
             h6111.innerHTML = 'Jetbrains';
@@ -131,7 +139,7 @@
 
 
     document.querySelector('.fontb').addEventListener('click', () => {
-        if(font==3){
+        if(font==5){
             font=1
         }else{
             font++
@@ -163,6 +171,24 @@
 
             allElements.forEach(element => {
                 element.style.fontFamily='parkinsans'
+            });
+
+        }
+        else if(localStorage.getItem('font')==4){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='lobster'
+            });
+
+        }
+        else if(localStorage.getItem('font')==5){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='roboto mono'
             });
 
         }
