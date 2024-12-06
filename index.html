@@ -16,7 +16,7 @@
     <h5>A Simple yet elegant Javascript code editor</h5>
     <div class="codecontainer" >
         <div id="editor"></div>
-        <textarea id="consoleOutput"></textarea>
+        <textarea id="consoleOutput" disabled></textarea>
     </div>
 
 
@@ -39,6 +39,10 @@
     if (localStorage.getItem('code')==null){
 
         localStorage.setItem('code','console.log(Math.PI)')
+    }
+    if (localStorage.getItem('consolep')==null){
+
+        localStorage.setItem('consolep','0')
     }
     if (localStorage.getItem('isdelete')==null){
 
@@ -141,7 +145,8 @@
             if (localStorage.getItem('isdelete')=='true'){
                 document.querySelector('#consoleOutput').value =''
             }else{
-                document.querySelector('#consoleOutput').value +='\n'
+                let d = new Date();
+                document.querySelector('#consoleOutput').value +='\n<'+d.getHours()+': '+d.getMinutes()+': '+d.getSeconds()+'>\n';
             }
 
             const result = eval(code);
@@ -220,6 +225,26 @@
     }
     checkforfont()
 
+    function checkforpos(){
+
+        if (localStorage.getItem('consolep')==0){
+
+            document.querySelector('#consoleOutput').style.textAlign='center';
+
+
+        }
+        else if (localStorage.getItem('consolep')==1){
+
+            document.querySelector('#consoleOutput').style.textAlign='left';
+
+
+        }else{
+            document.querySelector('#consoleOutput').style.textAlign='right';
+
+        }
+
+    }
+    checkforpos()
 
 
 

@@ -17,6 +17,9 @@
     <div class="plain">
         <button class="plainb">Plain coloured Text Editor</button> <h6 class="plainc">False</h6>
     </div>
+    <div class="console">
+        <button class="consoleb">Console output position</button> <h5 class="consolec">Center</h5>
+    </div>
     <div class="font">
         <button class="fontb">Change Font</button><h5 class="fontc">Jetbrains Mono</h5>
     </div>
@@ -25,7 +28,7 @@
     <a href="index.html">< Back to editor > </a>
 </div>
 <style>
-    .fg,.plain,.font{
+    .fg,.plain,.font,.console{
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -203,6 +206,50 @@
         }
     }
     checkforfont()
+
+
+    //-------------------------------------------------------------------
+    let con=''
+    if (localStorage.getItem('consolep')!=null) {
+        con = localStorage.getItem('consolep');
+    }else{
+        con=0
+    }
+
+
+    let h611111 = document.querySelector(".consolec");
+    function updateH6State11() {
+        if (con==0) {
+            h611111.innerHTML = 'Center';
+        }
+        else if(con==1){
+            h611111.innerHTML = 'Left';
+
+        }
+        else{
+            h611111.innerHTML = 'Right';
+
+        }
+
+
+    }
+    document.querySelector('.consoleb').addEventListener('click', () => {
+        if(con==2){
+            con=0
+        }else{
+            con++
+        }
+        localStorage.setItem('consolep', con);
+        updateH6State11()
+
+
+        updateH6State11();
+    });
+
+
+    updateH6State11();
+
+
 
 </script>
 </body>
