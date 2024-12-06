@@ -44,6 +44,8 @@ a{
     text-align: center;
     font-weight:bold;
     z-index:9999999999;
+    white-space: nowrap;
+
 }
 h1{
     transition: all .5s;
