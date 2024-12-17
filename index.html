@@ -26,6 +26,7 @@
 </div>
 
 <div style="text-align: center;">
+    <a class="time"></a>
     <a href="challenge.html">< Challenge me ></a>
     <a href="info.html">< Info ></a>
     <a href="styles.html">< Styles ></a>
@@ -248,7 +249,12 @@
 
     }
     checkforpos()
+    function time(){
+        let d = new Date();
+        document.querySelector('.time').innerHTML ='<'+d.getHours()+': '+d.getMinutes()+': '+d.getSeconds()+'>';
 
+    }
+    setInterval(time,100)
 
 
 </script>

@@ -53,10 +53,16 @@ h1{
 h1:hover{
     transform:translateY(-3px);
 }
+.time{
+    background: linear-gradient(90deg, rgb(229, 74, 208) 0%, rgba(234, 65, 110, 0.8) 100%);
+    color:transparent;
+    background-clip: text;
+}
 a:hover{
     filter:blur(1px);
     transform:translateY(1px);
 }
+
 .CodeMirror{
     box-shadow:0 0 25px rgba(42, 0, 54, 0.3);
 }
