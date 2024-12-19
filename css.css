@@ -45,6 +45,7 @@ a{
     font-weight:bold;
     z-index:9999999999;
     white-space: nowrap;
+    user-select: none;
 
 }
 h1{
