@@ -73,13 +73,15 @@ a:hover{
 
 .CodeMirror{
     box-shadow:0 0 25px rgba(42, 0, 54, 0.3);
+    width: auto;
+
 }
 
 .CodeMirror,textarea{
     border-radius:10px;
     border:none;
     background: linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%) ;
-
+    caret-color:white;
 
     padding:15px;
 
@@ -128,6 +130,15 @@ button:hover{
     flex-direction: row;
     gap:30px;
 }
+
+.CodeMirror-cursor {
+    border-left: 6px solid #6c4a91 !important;
+    box-shadow:0 0 30px #a633fc;
+
+
+
+}
+
 @media only screen and (max-width: 600px) {
     .codecontainer{
         flex-direction: column;
@@ -148,20 +159,30 @@ button:hover{
     #editor{
         width:86vw;
         field-sizing:content;
+        resize: vertical;
 
 
     }
 }
 /*zssscS*/
 
-
+.CodeMirror-selected{
+    background-color: #450688 !important;
+}
+.CodeMirror-s-material .CodeMirror-variable,.CodeMirror-variable-2,.CodeMirror-variable-3{
+    color:white !important;
+}
 .CodeMirror-linenumbers{
-
-    margin: 0;
+    box-shadow: 0 0 7px #3c1164;
+    padding-right:2px;
     z-index:9999999998;
-    border:none;
+    border-right:none !important;
     outline:none;
-    background: linear-gradient(to top left, rgb(45, 24, 52) 0%, rgba(47,0,70,1) 100%) !important;
+    background: linear-gradient(to top left, rgb(36, 23, 47) 0%, rgba(47,0,70,1) 100%) !important;
+
+}
+.CodeMirror-linenumber{
+    color: #a245ff !important;
 
 }
 ::selection{
