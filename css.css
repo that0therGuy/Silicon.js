@@ -132,8 +132,9 @@ button:hover{
 }
 
 .CodeMirror-cursor {
-    border-left: 6px solid #6c4a91 !important;
-    box-shadow:0 0 30px #a633fc;
+    border-left: 6px solid rgb(108,74,145,.5) !important;
+    box-shadow:0 0 30px #a534fc;
+
 
 
 
@@ -164,7 +165,7 @@ button:hover{
 
     }
 }
-/*zssscS*/
+/*zsscS*/
 
 .CodeMirror-selected{
     background-color: #450688 !important;
