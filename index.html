@@ -25,14 +25,14 @@
 
 </div>
 
-<div style="text-align: center;">
+<div style="text-align: center;display:block;">
     <a class="time"></a>
-    <a href="challenge.html">< Challenge me ></a>
+
     <a href="info.html">< Info ></a>
     <a href="styles.html">< Styles ></a>
 
     <a class="proj" href="proj.html">< Project Settings ></a>
-    <a href="https://github.com/that0therGuy">< @that0therguy ></a>
+    <a href="https://github.com/that0therGuy" class="sp_link">< @that0therguy ></a>
 
 
 </div>
@@ -52,6 +52,10 @@
 
         localStorage.setItem('isdelete','true')
     }
+    if (localStorage.getItem('isauto')==null){
+
+        localStorage.setItem('isauto','false')
+    }
     if (localStorage.getItem('bloom')==null){
 
         localStorage.setItem('bloom','false')
@@ -59,6 +63,10 @@
     if (localStorage.getItem('isplain')==null){
 
         localStorage.setItem('isplain','false')
+    }
+    if (localStorage.getItem('cooldown')==null){
+
+        localStorage.setItem('cooldown',2)
     }
     if (localStorage.getItem('font')==null){
 
@@ -116,9 +124,9 @@
 
         if (localStorage.getItem('isplain')==='true'){
 
-            document.querySelector('.CodeMirror').style.background='#290f3d';
+            document.querySelector('.CodeMirror').style.background='#25043b';
 
-            document.querySelector('#consoleOutput').style.background='#290f3d';
+            document.querySelector('#consoleOutput').style.background='#25043b';
 
 
         }else{
@@ -141,8 +149,43 @@
     })();
 
     // Initialize CodeMirror editor
+    if (localStorage.getItem('isauto')=='false'){
+        document.querySelector('.main').addEventListener('click',()=>{
+            localStorage.setItem('code',editor.getValue());
+            const code = editor.getValue();
+            try {
+                if (localStorage.getItem('isdelete')=='true'){
+                    document.querySelector('#consoleOutput').value =''
+                }else{
+                    let d = new Date();
+                    document.querySelector('#consoleOutput').value +='\n<'+d.getHours()+': '+d.getMinutes()+': '+d.getSeconds()+'>\n';
+                }
 
-    document.querySelector('.main').addEventListener('click',()=>{
+                const result = eval(code);
+                if (code.includes('this is the best ide!')){
+                    let ma= document.createElement('marquee');
+                    ma.textContent='thanks!'
+                    ma.style.color='red';
+                    document.body.querySelector('.container').appendChild(ma)
+                    document.querySelector('h1').style.color='red';
+                    document.querySelector('h5').style.color='red';
+                    document.querySelector('h5').innerHTML+= ' *blushing*';
+
+                }
+
+
+
+
+            } catch (error) {
+                console.log('Error: ' + error);
+            }
+        })
+
+    }else{
+
+        setInterval(executecode,(Number(localStorage.getItem('cooldown')))*1000)
+    }
+    function executecode(){
         localStorage.setItem('code',editor.getValue());
         const code = editor.getValue();
         try {
@@ -154,16 +197,6 @@
             }
 
             const result = eval(code);
-            if (code.includes('this is the best ide!')){
-                let ma= document.createElement('marquee');
-                ma.textContent='thanks!'
-                ma.style.color='red';
-                document.body.querySelector('.container').appendChild(ma)
-                document.querySelector('h1').style.color='red';
-                document.querySelector('h5').style.color='red';
-                document.querySelector('h5').innerHTML+= ' *blushing*';
-
-            }
 
 
 
@@ -171,7 +204,8 @@
         } catch (error) {
             console.log('Error: ' + error);
         }
-    })
+    }
+
     document.querySelector('.main').addEventListener('dblclick',()=>{
         if (localStorage.getItem('isdbl')==='true'){
             editor.setValue('')

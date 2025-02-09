@@ -27,11 +27,23 @@
     <h6 class="consb">False</h6>
 
   </div>
+  <div style="display:flex;align-items: center;justify-content: center;gap:25px;">
+    <button class="auto">Automatic Execution</button>
+    <h6 class="autob">False</h6>
+    <div>
+      <input type="text" class="cooldown" maxlength="2"/>
+      <label style="margin:0;">s</label>
+    </div>
+
+
+  </div>
 
 
   <a href="index.html">< Back to editor > </a>
 </div>
 <script>
+  document.querySelector('.cooldown').value=localStorage.getItem('cooldown')
+
   function checkforfont(){
 
     if (localStorage.getItem('font')==1){
@@ -176,6 +188,62 @@
   }
   document.querySelector('.cons').addEventListener('click',()=>{
     deleteconsole()
+
+  })
+
+
+
+
+  if (localStorage.getItem('cooldown')==null){
+    localStorage.setItem('cooldown',2)
+    document.querySelector('.cooldown').value='2'
+
+  }
+
+  let h6as = document.querySelector(".autob");
+  if (localStorage.getItem('isauto')==null){
+    isauto= false
+
+  }else{
+    isauto= localStorage.getItem('isauto')==='true';
+    updateH6Stateqw()
+  }
+
+  function updateH6Stateqw() {
+    if (isauto) {
+      h6as.style.background = 'linear-gradient(90deg, rgb(207, 255, 205) 0%, rgba(61, 255, 31, 0.8) 100%)';
+      h6as.innerHTML = 'True';
+      h6as.style.webkitBackgroundClip = 'text';
+      h6as.style.webkitTextFillColor = 'transparent';
+    } else {
+      h6as.innerHTML = 'False';
+      h6as.style.background = 'linear-gradient(90deg, rgb(255, 205, 205) 0%, rgba(117, 0, 0, 0.8) 100%)';
+      h6as.style.webkitBackgroundClip = 'text';
+      h6as.style.webkitTextFillColor = 'transparent';
+    }
+
+  }
+  updateH6Stateqw()
+
+
+  function autoclick(){
+    console.log(isauto)
+    isauto=!isauto;
+    localStorage.setItem('isauto',isauto);
+    localStorage.setItem('cool',document.querySelector('.cooldown').value);
+
+    updateH6Stateqw()
+
+  }
+  document.querySelector('.auto').addEventListener('click',()=>{
+    autoclick()
+
+  })
+  document.querySelector('.cooldown').addEventListener('click',()=>{
+    isauto=false
+    localStorage.setItem('isauto',isauto);
+
+    updateH6Stateqw()
 
   })
 
