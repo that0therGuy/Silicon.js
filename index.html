@@ -69,6 +69,10 @@
 
         localStorage.setItem('isauto','false')
     }
+    if (localStorage.getItem('islint')==null){
+
+        localStorage.setItem('islint','true')
+    }
     if (localStorage.getItem('bloom')==null){
 
         localStorage.setItem('bloom','false')
@@ -323,6 +327,14 @@
 
     }
     setInterval(time,100)
+
+    if (localStorage.getItem('islint')=='true'){
+
+        editor.setOption("lint", true);
+    }else{
+        editor.setOption("lint", false);
+    }
+
 
 
 </script>

@@ -26,7 +26,9 @@
     <button class="cons">Delete console before running Code</button>
     <h6 class="consb">False</h6>
 
+
   </div>
+
   <div style="display:flex;align-items: center;justify-content: center;gap:25px;">
     <button class="auto">Automatic Execution</button>
     <h6 class="autob">False</h6>
@@ -35,6 +37,11 @@
       <label style="margin:0;">s</label>
     </div>
 
+
+  </div>
+  <div style="display:flex;align-items: center;justify-content: center;gap:25px;">
+    <button class="lint">Linting</button>
+    <h6 class="lintb">False</h6>
 
   </div>
 
@@ -242,6 +249,49 @@
     localStorage.setItem('isauto',isauto);
 
     updateH6Stateqw()
+
+  })
+
+
+
+  let h6lint = document.querySelector(".lintb");
+  let islint = localStorage.getItem('islint') === null ? true : localStorage.getItem('islint') === 'true';
+  localStorage.setItem('islint', isdelete);
+
+  if (localStorage.getItem('islint')==null){
+    islint= false
+
+  }else{
+    isdbl= localStorage.getItem('islint')==='true';
+    updateH6Statel()
+  }
+
+  function updateH6Statel() {
+    if (islint) {
+      h6lint.style.background = 'linear-gradient(90deg, rgb(207, 255, 205) 0%, rgba(61, 255, 31, 0.8) 100%)';
+      h6lint.innerHTML = 'True';
+      h6lint.style.webkitBackgroundClip = 'text';
+      h6lint.style.webkitTextFillColor = 'transparent';
+    } else {
+      h6lint.innerHTML = 'False';
+      h6lint.style.background = 'linear-gradient(90deg, rgb(255, 205, 205) 0%, rgba(117, 0, 0, 0.8) 100%)';
+      h6lint.style.webkitBackgroundClip = 'text';
+      h6lint.style.webkitTextFillColor = 'transparent';
+    }
+
+  }
+  updateH6Statel()
+
+
+  function lint(){
+    console.log(isdbl)
+    islint=!islint;
+    localStorage.setItem('islint',islint);
+    updateH6Statel()
+
+  }
+  document.querySelector('.lint').addEventListener('click',()=>{
+    lint()
 
   })
 
