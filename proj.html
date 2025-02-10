@@ -152,17 +152,14 @@
   })
 
 
-  isdelete=''
-  let aas = document.querySelector(".consb");
-  if (localStorage.getItem('console')==null){
-    isdelete= true
 
-  }else{
-    isdelete= localStorage.getItem('isdelete')==='true';
-    updateH6Statea()
-  }
+  let aas = document.querySelector(".consb");
+  let isdelete = localStorage.getItem('isdelete') === null ? false : localStorage.getItem('isdelete') === 'true';
+  localStorage.setItem('isdelete', isdelete); // Ensure it's stored
+  updateH6Statea();
 
   function updateH6Statea() {
+
     if (isdelete) {
       aas.style.background = 'linear-gradient(90deg, rgb(207, 255, 205) 0%, rgba(61, 255, 31, 0.8) 100%)';
       aas.innerHTML = 'True';
@@ -176,6 +173,7 @@
     }
 
   }
+  updateH6Statea()
   updateH6Statea()
 
 
