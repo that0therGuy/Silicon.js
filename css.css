@@ -218,3 +218,23 @@ input[type=number] {
 
 
 }
+
+.CodeMirror-hints {
+    background: #bf7cff !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+}
+
+
+.CodeMirror-hint-active {
+    background: #601e91 !important;
+    color: #edd8ff !important;
+}
+
+.cm-def {
+    color: #d9b504 !important;
+
+}
+.cm-keyword{
+    color: #ff579a !important;
+}

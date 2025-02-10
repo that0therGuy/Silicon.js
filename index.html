@@ -8,9 +8,14 @@
     <link rel="icon" href="img.png" type="image/x-icon">
     <title>New Notepad</title>
     <link rel="stylesheet" href="css.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/matchbrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/javascript-hint.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -77,8 +82,16 @@
         mode: "javascript",
         theme: "default",
         lineNumbers: true,
+        autoCloseBrackets: true,
+        matchBrackets: true
 
-    }); 
+
+    });
+    editor.on("inputRead", function (editor, event) {
+        if (!editor.state.completionActive) {  // Prevent multiple autocompletes
+            CodeMirror.commands.autocomplete(editor, null, { completeSingle: false });
+        }
+    });
 
 
 
