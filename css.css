@@ -223,12 +223,17 @@ input[type=number] {
     background: #bf7cff !important;
     color: #ffffff !important;
     font-size: 14px !important;
+    border: 2px solid #624879 !important;
 }
 
 
 .CodeMirror-hint-active {
     background: #601e91 !important;
     color: #edd8ff !important;
+    padding:3px !important;
+    text-decoration: underline !important;
+    text-decoration-color: #ce6afd !important;
+
 }
 
 .cm-def {
@@ -247,13 +252,7 @@ input[type=number] {
     height: 1.2em !important; /* Adjust based on your font size */
 }
 
-body {
-    cursor: url('2x.png'),auto !important;
-}
 
-textarea:hover{
-    cursor: url('2x.png'),auto !important;
-}
-a:hover{
+*{
     cursor: url('2x.png'),auto !important;
 }
