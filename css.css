@@ -242,3 +242,9 @@ input[type=number] {
     color: #f1a66e !important;  /* Yellow */
     font-weight: bold;
 }
+/* Ensure the cursor matches the text size */
+.CodeMirror-cursor {
+    height: 1.2em !important; /* Adjust based on your font size */
+}
+
+
