@@ -238,3 +238,7 @@ input[type=number] {
 .cm-keyword{
     color: #ff579a !important;
 }
+.cm-atom {
+    color: #f1a66e !important;  /* Yellow */
+    font-weight: bold;
+}
