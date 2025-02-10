@@ -247,4 +247,13 @@ input[type=number] {
     height: 1.2em !important; /* Adjust based on your font size */
 }
 
+body {
+    cursor: url('2x.png'),auto !important;
+}
 
+textarea:hover{
+    cursor: url('2x.png'),auto !important;
+}
+a:hover{
+    cursor: url('2x.png'),auto !important;
+}
