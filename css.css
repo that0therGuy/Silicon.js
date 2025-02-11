@@ -91,7 +91,7 @@ textarea{
 
     box-shadow:0 0 25px rgba(42, 0, 54, 0.3);
     width:30vw;
-    height:92%;
+    height:78%;
     resize:horizontal;
     overflow: auto;
     max-width:40vw;
@@ -164,6 +164,19 @@ button:hover{
 
 
     }
+    textarea{
+        margin-bottom:140px;
+        min-height:120px;
+    }
+
+
+
+}
+.full{
+    display:none;
+}
+.ag{
+    text-align: center;display:block;
 }
 /*zsscS*/
 
@@ -253,9 +266,7 @@ input[type=number] {
 }
 
 
-*{
-    cursor: url('2x.png'),auto !important;
-}
+
 
 .CodeMirror-lint-tooltip {
     background: #2b132d !important;
@@ -267,5 +278,31 @@ input[type=number] {
 .CodeMirror-fullscreen {
     background: linear-gradient(to top left, rgb(31, 0, 52), rgb(47,0,70)) ;
     font-size:20px !important;
+
+}
+.workspaces{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction:column;
+
+
+
+
+}
+.z{
+    padding-right:20px;
+    padding-left:20px;
+    background: linear-gradient(to top left, rgba(68, 30, 94, 0.2) 0%, rgb(47, 0, 70) 100%) !important;
+
+}
+.z:hover{
+    margin-right:5px;
+    margin-left: 5px;
+    box-shadow: 0 0 60px rgb(182, 94, 231,.2);
+}
+
+.btnh{
+    padding:10px;
 
 }

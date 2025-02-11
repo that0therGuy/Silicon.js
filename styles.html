@@ -23,6 +23,9 @@
     <div class="font">
         <button class="fontb">Change Font</button><h5 class="fontc">Jetbrains Mono</h5>
     </div>
+    <div class="cursor">
+        <button class="cursorb">Custom Cursor</button><h5 class="cursorc">Jetbrains Mono</h5>
+    </div>
     <h5>You can style it further using Javascript!</h5>
 
     <a href="index.html">< Back to editor > </a>
@@ -40,6 +43,9 @@
             flex-direction: column;
             gap:15px;
         }
+    }
+    .cursor{
+        display: none;
     }
 </style>
 <script src='index.js'></script>
@@ -248,6 +254,44 @@
 
 
     updateH6State11();
+
+
+
+
+
+    if (localStorage.getItem('iscustom')==null){
+
+        localStorage.setItem('iscustom',false)
+    }
+    let iscustom = localStorage.getItem('iscustom') === "true" ;
+
+    let h63c = document.querySelector(".cursorc");
+    function updateH6State1c() {
+        if (iscustom) {
+            h63c.style.background = 'linear-gradient(90deg, rgb(207, 255, 205) 0%, rgba(61, 255, 31, 0.8) 100%)';
+            h63c.innerHTML = 'True';
+            h63c.style.webkitBackgroundClip = 'text';
+            h63c.style.webkitTextFillColor = 'transparent';
+        } else {
+            h63c.innerHTML = 'False';
+            h63c.style.background = 'linear-gradient(90deg, rgb(255, 205, 205) 0%, rgba(117, 0, 0, 0.8) 100%)';
+            h63c.style.webkitBackgroundClip = 'text';
+            h63c.style.webkitTextFillColor = 'transparent';
+        }
+
+    }
+
+
+    document.querySelector('.cursorb').addEventListener('click', () => {
+        iscustom = !iscustom;
+        localStorage.setItem('iscustom',iscustom);
+
+
+        updateH6State1c();
+    });
+
+
+    updateH6State1c();
 
 
 
