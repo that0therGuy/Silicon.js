@@ -36,9 +36,15 @@
 
             <div id="editor"></div>
             <div class="btnh">
-                <button class="z z1" onclick="setkey('b1')">1</button>
-                <button class="z z2" onclick="setkey('b2')">2</button>
-                <button class="z z3" onclick="setkey('b3')">3</button>
+
+
+                <div style="display: inline-block">
+                    <div class='linesc'style="display:inline-block;"><p style="display:inline-block;">Lines: </p><p class='lines'style="display:inline-block;"></p></div>
+                    <button class="z z1" onclick="setkey('b1')">1</button>
+                    <button class="z z2" onclick="setkey('b2')">2</button>
+                    <button class="z z3" onclick="setkey('b3')">3</button>
+                </div>
+
                 <button style='padding:8px;' class="full"><img src="full.svg" height="16" width="15" style="margin:0;"></button>
             </div>
 
@@ -373,7 +379,10 @@
     }else{
         editor.setOption("lint", false);
     }
-
+    function lines(){
+        document.querySelector('.lines').innerHTML= editor.lineCount();
+    }
+    setInterval(lines,250)
 
 
 

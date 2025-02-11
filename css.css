@@ -266,7 +266,12 @@ input[type=number] {
 }
 
 
+.extratools{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
 
+}
 
 .CodeMirror-lint-tooltip {
     background: #2b132d !important;
@@ -304,5 +309,17 @@ input[type=number] {
 
 .btnh{
     padding:10px;
+
+}
+
+p{
+    margin-right:5px;
+}
+.linesc{
+    border:2px solid rgb(93, 0, 100);
+    padding:4px;
+    border-radius:4px;
+    background: linear-gradient(to top left, rgb(56, 6, 68), rgb(75, 4, 75)) ;
+    box-shadow: 5px 5px 30px rgba(170, 0, 85, 0.27);
 
 }
