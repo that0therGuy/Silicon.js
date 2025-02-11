@@ -75,6 +75,36 @@
 </div>
 <script src='index.js'></script>
 <script>
+    document.querySelector('.z1').addEventListener('click',()=>{
+        document.querySelector('#editor').classList.add("animate");
+
+
+        document.querySelector('#editor').addEventListener("animationend", () => {
+            document.querySelector('#editor').classList.remove("animate");
+        });
+
+
+    })
+    document.querySelector('.z2').addEventListener('click',()=>{
+        document.querySelector('#editor').classList.add("animate");
+
+
+        document.querySelector('#editor').addEventListener("animationend", () => {
+            document.querySelector('#editor').classList.remove("animate");
+        });
+
+
+    })
+    document.querySelector('.z3').addEventListener('click',()=>{
+        document.querySelector('#editor').classList.add("animate");
+
+
+        document.querySelector('#editor').addEventListener("animationend", () => {
+            document.querySelector('#editor').classList.remove("animate");
+        });
+
+
+    })
     const topsecret= 'you found easter egg #2!'
 
     if (localStorage.getItem('code')==null){
@@ -160,6 +190,7 @@
     function savekey(){
         localStorage.setItem(on,editor.getValue())
     }
+
 
 
 

@@ -7,6 +7,22 @@
     color: rgb(211, 153, 255);
     caret-color: white;
 }
+@keyframes wobble{
+
+    0%{
+        filter: blur(5px);
+        backdrop-filter: grayscale(25%);
+
+    }
+    100%{
+        filter: blur(0px);
+        backdrop-filter: grayscale(0%);
+
+    }
+}
+.animate{
+    animation:wobble .3s ease;
+}
 html{
     background-color:rgba(47,0,70,1);
 }
@@ -123,12 +139,16 @@ button:hover{
     resize: horizontal;
     overflow: auto;
     max-width:60vw;
+
 }
 .codecontainer{
     margin-top:100px;
     display:flex;
     flex-direction: row;
     gap:30px;
+
+
+
 }
 
 .CodeMirror-cursor {
