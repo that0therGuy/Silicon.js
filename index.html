@@ -75,6 +75,14 @@
 </div>
 <script src='index.js'></script>
 <script>
+    document.querySelector('body').classList.add("animate2");
+
+
+    document.querySelector('body').addEventListener("animationend", () => {
+        document.querySelector('body').classList.remove("animate2");
+    });
+
+
     document.querySelector('.z1').addEventListener('click',()=>{
         document.querySelector('#editor').classList.add("animate");
 
