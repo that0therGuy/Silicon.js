@@ -296,6 +296,10 @@ input[type=number] {
     color: #128c00 !important;
 
 }
+.cm-atom{
+    color: #f1a66e !important;  /* Yellow */
+    font-weight: bold;
+}
 .toggle-btn {
     color: #f1a66e !important;  /* Yellow */
     font-weight: bold;

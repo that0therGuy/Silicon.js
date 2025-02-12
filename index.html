@@ -23,9 +23,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/lint/lint.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jshint/2.13.6/jshint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/lint/javascript-lint.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/yjs@13.6.14/dist/yjs.min.js"></script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/javascript-hint.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -148,10 +146,6 @@
     if (localStorage.getItem('iscustom')==null){
 
         localStorage.setItem('iscustom','false')
-    }
-    if (localStorage.getItem('isfea')==null){
-
-        localStorage.setItem('isfea','true')
     }
     if (localStorage.getItem('issugg')==null){
 
@@ -427,7 +421,7 @@
     function lines(){
         document.querySelector('.lines').innerHTML= editor.lineCount();
     }
-    setInterval(lines,100)
+    setInterval(lines,250)
 
 
     function replaceTrueFalse() {
@@ -530,13 +524,6 @@
 
         setTimeout(replaceNumbers, 100);
     }
-
-
-
-
-
-
-
 
 
 
