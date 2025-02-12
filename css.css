@@ -64,6 +64,7 @@ h1,h5,a{
     text-shadow:0 0 35px rgba(182,31,255,.7);
     text-align: center;
 }
+
 h6{
     background: linear-gradient(90deg, rgb(207, 255, 205) 0%, rgba(61, 255, 31, 0.8) 100%);
     color:transparent;
@@ -291,9 +292,23 @@ input[type=number] {
 .cm-keyword{
     color: #ff579a !important;
 }
-.cm-atom {
+.cm-number,.number-span{
+    color: #128c00 !important;
+
+}
+.toggle-btn {
     color: #f1a66e !important;  /* Yellow */
     font-weight: bold;
+    font-family:inherit !important;
+    margin:0;
+    padding:0;
+    font-size: inherit;
+}
+.toggle-btn:hover{
+    transform:scale(1);
+    cursor:pointer;
+    filter:grayscale(0%);
+
 }
 /* Ensure the cursor matches the text size */
 .CodeMirror-cursor {

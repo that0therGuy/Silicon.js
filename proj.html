@@ -78,6 +78,12 @@
     <h6 class="suggest">True</h6>
 
   </div>
+  <div style="display:flex;align-items: center;justify-content: center;gap:25px;">
+    <button class="feab">Editor Features</button>
+    <h6 class="fea">True</h6>
+    <h5>(Beta)</h5>
+
+  </div>
 
 
   <a href="index.html">< Back to editor > </a>
@@ -372,6 +378,61 @@
   }
   document.querySelector('.suggestb').addEventListener('click',()=>{
     suggest()
+
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  let h6f = document.querySelector(".fea");
+  let isfea = localStorage.getItem('isfea') === null ? true : localStorage.getItem('isfea') === 'true';
+  localStorage.setItem('isfea', isfea);
+
+  if (localStorage.getItem('isfea')==null){
+    isfea= true
+
+  }else{
+    isfea= localStorage.getItem('isfea')==='true';
+    updateH6Statef()
+  }
+
+  function updateH6Statef() {
+    if (isfea) {
+      h6f.style.background = 'linear-gradient(90deg, rgb(207, 255, 205) 0%, rgba(61, 255, 31, 0.8) 100%)';
+      h6f.innerHTML = 'True';
+      h6f.style.webkitBackgroundClip = 'text';
+      h6f.style.webkitTextFillColor = 'transparent';
+    } else {
+      h6f.innerHTML = 'False';
+      h6f.style.background = 'linear-gradient(90deg, rgb(255, 205, 205) 0%, rgba(117, 0, 0, 0.8) 100%)';
+      h6f.style.webkitBackgroundClip = 'text';
+      h6f.style.webkitTextFillColor = 'transparent';
+    }
+
+  }
+  updateH6Statef()
+
+
+  function suggestf(){
+
+    isfea=!isfea;
+    localStorage.setItem('isfea',isfea);
+    updateH6Statef()
+
+  }
+  document.querySelector('.feab').addEventListener('click',()=>{
+    suggestf()
 
   })
 

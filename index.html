@@ -23,7 +23,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/lint/lint.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jshint/2.13.6/jshint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/lint/javascript-lint.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/javascript-hint.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/yjs@13.6.14/dist/yjs.min.js"></script>
+
+
 </head>
 <body>
 <div class="container">
@@ -146,6 +148,10 @@
     if (localStorage.getItem('iscustom')==null){
 
         localStorage.setItem('iscustom','false')
+    }
+    if (localStorage.getItem('isfea')==null){
+
+        localStorage.setItem('isfea','true')
     }
     if (localStorage.getItem('issugg')==null){
 
@@ -422,6 +428,112 @@
         document.querySelector('.lines').innerHTML= editor.lineCount();
     }
     setInterval(lines,100)
+
+
+    function replaceTrueFalse() {
+        const doc = editor.getDoc();
+        const totalLines = doc.lineCount();
+
+        for (let lineNum = 0; lineNum < totalLines; lineNum++) {
+            const line = doc.getLine(lineNum);
+            const regex = /\b(true|false)\b/g;
+            let match;
+
+            while ((match = regex.exec(line)) !== null) {
+                const from = { line: lineNum, ch: match.index };
+                const to = { line: lineNum, ch: match.index + match[0].length };
+                const value = match[0];
+
+
+                const btn = document.createElement("button");
+                btn.textContent = value;
+                btn.className = "toggle-btn";
+
+                btn.onclick = () => {
+                    const newValue = btn.textContent === "true" ? "false" : "true";
+                    doc.replaceRange(newValue, from, to);
+                    setTimeout(replaceTrueFalse, 50);
+                };
+
+                doc.markText(from, to, { replacedWith: btn });
+            }
+        }
+    }
+
+
+
+
+
+
+    function replaceNumbers() {
+        const doc = editor.getDoc();
+        const cursor = doc.getCursor();
+        const line = doc.getLine(cursor.line);
+
+        const regex = /\b\d+(\.\d+)?\b/g;
+        let match;
+        while ((match = regex.exec(line)) !== null) {
+            const from = { line: cursor.line, ch: match.index };
+            const to = { line: cursor.line, ch: match.index + match[0].length };
+
+            const span = document.createElement("span");
+            span.textContent = match[0];
+            span.className = "number-span";
+
+            let startX = 0;
+            let originalValue = parseFloat(match[0]);
+
+
+            span.onmousedown = (e) => {
+                startX = e.clientX;
+                let currentValue = originalValue;
+
+
+                function onMouseMove(event) {
+                    let delta = Math.floor((event.clientX - startX) / 5);
+                    span.textContent = currentValue + delta;
+                }
+
+                function onMouseUp() {
+                    const newValue = parseFloat(span.textContent);
+                    doc.replaceRange(newValue.toString(), from, to);
+                    document.removeEventListener("mousemove", onMouseMove);
+                    document.removeEventListener("mouseup", onMouseUp);
+                }
+
+                document.addEventListener("mousemove", onMouseMove);
+                document.addEventListener("mouseup", onMouseUp);
+            };
+
+
+            doc.markText(from, to, {
+                replacedWith: span
+            });
+        }
+    }
+    if (localStorage.getItem('isfea')=='true'){
+        editor.on("change", replaceNumbers);
+        editor.on("changes", replaceTrueFalse);
+        editor.on("cursorActivity", replaceTrueFalse);
+
+        editor.on("optionChange", (cm, option) => {
+            if (option === "fullScreen") setTimeout(replaceTrueFalse, 100);
+        });
+
+        setTimeout(replaceTrueFalse, 100);
+
+        editor.on("cursorActivity", replaceNumbers);
+
+        editor.on("optionChange", (cm, option) => {
+            if (option === "fullScreen") setTimeout(replaceNumbers, 100);
+        });
+
+        setTimeout(replaceNumbers, 100);
+    }
+
+
+
+
 
 
 

@@ -8,6 +8,9 @@
   },
   "private": true,
   "dependencies": {
-    "codemirror": "^6.0.1"
+    "@replit/codemirror-interact": "^6.3.1",
+    "codemirror": "^6.0.1",
+    "ws": "^8.18.0",
+    "y-codemirror.next": "^0.3.5"
   }
 }
