@@ -43,6 +43,10 @@
                     <button class="z z1" onclick="setkey('b1')">1</button>
                     <button class="z z2" onclick="setkey('b2')">2</button>
                     <button class="z z3" onclick="setkey('b3')">3</button>
+                    <div class='linesc file' style="display:inline-block;">
+                        <label class="file-label" for="fileInput">Load...</label>
+                        <input class="inputfile"  id="fileInput" type="file" style="display: none;">
+                    </div>
                 </div>
 
                 <button style='padding:8px;' class="full"><img src="full.svg" height="16" width="15" style="margin:0;"></button>
@@ -205,6 +209,14 @@
 
 
     editor.setValue(localStorage.getItem('code'));
+    document.querySelector('.inputfile').addEventListener('change',function(){
+        let fileread= new FileReader()
+        fileread.onload=()=>{
+
+            editor.setValue(fileread.result);
+        }
+        fileread.readAsText(this.files[0]);
+    })
 
 
 
