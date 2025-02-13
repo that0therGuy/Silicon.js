@@ -195,7 +195,7 @@ button:hover{
     }
     #editor{
         width:86vw;
-        field-sizing:content;
+
         resize: vertical;
 
 
@@ -204,6 +204,10 @@ button:hover{
         margin-bottom:140px;
         min-height:120px;
     }
+    .container{
+        justify-content: flex-start;
+    }
+
 
 
 
