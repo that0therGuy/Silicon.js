@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="img.png" type="image/x-icon">
+    <title>Files</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css.css">
+
+</head>
+<body>
+<div class="container" style="gap:20px;">
+    <H1>Files</H1>
+    <div class="files">
+
+    </div>
+
+
+    <a href="index.html">< Back to editor > </a>
+</div>
+<script>
+    function checkforfont(){
+
+        if (localStorage.getItem('font')==1){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='space mono'
+            });
+
+
+
+        }else if(localStorage.getItem('font')==2){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='parkinsans'
+            });
+
+        }
+        else if(localStorage.getItem('font')==4){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='lobster'
+            });
+
+        }
+        else if(localStorage.getItem('font')==5){
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='roboto mono'
+            });
+
+        }
+        else{
+            const allElements = document.querySelectorAll('*');
+
+
+            allElements.forEach(element => {
+                element.style.fontFamily='jetbrains mono'
+            });
+
+        }
+    }
+    checkforfont()
+
+    const Z= JSON.parse(localStorage.getItem('files'));
+    const files = new Map(Object.entries(Z));
+
+    for(let x of files.entries()){
+
+        let div = document.createElement('div')
+        div.setAttribute('style','display:flex;gap:50px;margin-bottom:20px;')
+        document.querySelector('.files').appendChild(div)
+        let file= document.createElement('h2')
+        let file2= document.createElement('textarea')
+        file2.setAttribute('disabled','true')
+        file.innerText=x[1][0];
+        file2.value=x[1][1];
+        div.appendChild(file)
+        div.appendChild(file2)
+
+
+    }
+</script>
+</body>
+</html>
