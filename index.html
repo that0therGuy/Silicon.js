@@ -86,6 +86,23 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
 </div>
 <script src='index.js'></script>
 <script>
+    let files= new Map([
+
+    ])
+
+    let helper={
+        registerFile: function (name,file){
+            file.text().then((text) => {
+                files.set(name,text)
+
+                localStorage.setItem('files', JSON.stringify([...files]));
+            });
+
+        },
+        deleteFile: function (name){
+            files.delete(name)
+        }
+    }
     let tensorflow = tf
     document.querySelector('body').classList.add("animate2");
 
