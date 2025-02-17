@@ -69,13 +69,16 @@
         }
     }
     checkforfont()
+    let div;
+    div.remove()
+    
 
     const Z= JSON.parse(localStorage.getItem('files'));
     const files = new Map(Object.entries(Z));
 
     for(let x of files.entries()){
 
-        let div = document.createElement('div')
+        div = document.createElement('div')
         div.setAttribute('style','display:flex;gap:50px;margin-bottom:20px;')
         document.querySelector('.files').appendChild(div)
         let file= document.createElement('h2')
