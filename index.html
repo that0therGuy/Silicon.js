@@ -29,13 +29,14 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jshint/2.13.6/jshint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/lint/javascript-lint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/compromise"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/javascript-hint.min.js"></script>
 </head>
 <body>
 <div class="container">
     <h1 class="main">< Notepad.js ></h1>
-    <h5>A Simple yet elegant Javascript code editor</h5>
+    <h5>A Simple yet Elegant Javascript code editor</h5>
 
     <div class="codecontainer" >
         <div class="workspaces">
@@ -90,6 +91,8 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     let files= new Map([
 
     ])
+    const Z= JSON.parse(localStorage.getItem('files'));
+    files = new Map(Object.entries(Z));
 
     let helper={
         registerFile: function (name,file){
@@ -102,6 +105,10 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
         },
         deleteFile: function (name){
             files.delete(name)
+            localStorage.setItem('files', JSON.stringify([...files]));
+        },
+        getFile: function(name){
+            return files.get(name)
         }
     }
     let tensorflow = tf
@@ -147,7 +154,7 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
 
     if (localStorage.getItem('code')==null){
 
-        localStorage.setItem('code',`console.log('pi: '+ Math.PI)`)
+        localStorage.setItem('code',`//Refer < info > for useful info!\nconsole.log(math.PI === Math.PI)`)
     }
     if (localStorage.getItem('consolep')==null){
 
@@ -202,9 +209,11 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
         extraKeys: {
             "F11": function(cm) {
                 cm.setOption("fullScreen", !cm.getOption("fullScreen"));
+                document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 1) 0%, rgba(47,0,70,1) 100%)'
             },
             "Esc": function(cm) {
                 if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
+                document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%)'
             }
         }
 

@@ -70,8 +70,9 @@
     }
     checkforfont()
     let div;
+    let file2;
     div.remove()
-    
+
 
     const Z= JSON.parse(localStorage.getItem('files'));
     const files = new Map(Object.entries(Z));
@@ -82,7 +83,7 @@
         div.setAttribute('style','display:flex;gap:50px;margin-bottom:20px;')
         document.querySelector('.files').appendChild(div)
         let file= document.createElement('h2')
-        let file2= document.createElement('textarea')
+        file2= document.createElement('textarea')
         file2.setAttribute('disabled','true')
         file.innerText=x[1][0];
         file2.value=x[1][1];
@@ -91,6 +92,7 @@
 
 
     }
+
 </script>
 </body>
 </html>
