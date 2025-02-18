@@ -30,6 +30,8 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/lint/javascript-lint.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/compromise"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sci.js@latest/dist/sci.min.js"></script>
+    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/javascript-hint.min.js"></script>
 </head>
@@ -91,7 +93,6 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     let files= new Map([
 
     ])
-
 
     let helper={
         registerFile: function (name,file){
@@ -329,7 +330,7 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
                     document.querySelector('#consoleOutput').value +='\n<'+d.getHours()+': '+d.getMinutes()+': '+d.getSeconds()+'>\n';
                 }
 
-                const result = eval(code);
+                const result =eval(code);
                 if (code.includes('this is the best ide!')){
                     let ma= document.createElement('marquee');
                     ma.textContent='thanks!'
