@@ -7,6 +7,12 @@
     color: rgb(211, 153, 255);
     caret-color: white;
 }
+::-webkit-scrollbar{
+    background-color: #220a38 ;
+
+    visibility: hidden !important;
+    width:0;
+}
 @keyframes wobble{
 
     0%{
