@@ -575,21 +575,24 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
 
         setTimeout(replaceNumbers, 100);
     }
-    function scrolltoline(){
-        let line = document.querySelector('.scrollto').value
-        try{
+    document.querySelector('.scrollto').addEventListener('blur', scrolltoline);
+
+    function scrolltoline() {
+        let line = document.querySelector('.scrollto').value;
+        try {
             editor.scrollIntoView({ line: parseInt(line), ch: 0 });
-            document.querySelector('.scrollto').value=null
-            line=''
-            document.querySelector('.scrolltod').style.filter='sepia(1) hue-rotate(90deg) saturate(3)'
-
+            document.querySelector('.scrollto').value = null;
+            document.querySelector('.scrolltod').style.filter = 'sepia(1) hue-rotate(90deg) saturate(3)';
+            setTimeout(lose,1000)
+        } catch (err) {
+            document.querySelector('.scrolltod').style.filter = 'none';
         }
-        catch (err){
-            document.querySelector('.scrolltod').style.filter='none'
 
-        }
     }
-    setInterval(scrolltoline, 2500)
+
+    function lose(){
+        document.querySelector('.scrolltod').style.filter = 'none';
+    }
 
 
 
