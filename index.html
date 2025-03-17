@@ -47,8 +47,9 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
             <div id="editor"></div>
             <div class="btnh">
 
-
                 <div style="display: inline-block">
+                    <div class='cpos'style="display:inline-block;"><p class='pos' style="display:inline-block;"></p></div>
+
                     <div class='linesc'style="display:inline-block;"><p style="display:inline-block;">Lines: </p><p class='lines'style="display:inline-block;"></p></div>
                     <button class="z z1" onclick="setkey('b1')">1</button>
                     <button class="z z2" onclick="setkey('b2')">2</button>
@@ -58,6 +59,7 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
                         <input class="inputfile"  id="fileInput" type="file" style="display: none;">
                     </div>
                 </div>
+                <div class='scrolltod'style="display:inline-block;"><p style="display:inline-block;">Scroll to&nbsp;</p><input  type="text" class="scrollto"></div>
 
                 <button style='padding:8px;' class="full"><img src="full.svg" height="16" width="15" style="margin:0;"></button>
             </div>
@@ -467,6 +469,8 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     }
     function lines(){
         document.querySelector('.lines').innerHTML= editor.lineCount();
+        let cursor = editor.getCursor();
+        document.querySelector('.pos').innerHTML=`${cursor.line+1}, ${cursor.ch}`
     }
     setInterval(lines,250)
 
@@ -571,6 +575,21 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
 
         setTimeout(replaceNumbers, 100);
     }
+    function scrolltoline(){
+        let line = document.querySelector('.scrollto').value
+        try{
+            editor.scrollIntoView({ line: parseInt(line), ch: 0 });
+            document.querySelector('.scrollto').value=null
+            line=''
+            document.querySelector('.scrolltod').style.filter='sepia(1) hue-rotate(90deg) saturate(3)'
+
+        }
+        catch (err){
+            document.querySelector('.scrolltod').style.filter='none'
+
+        }
+    }
+    setInterval(scrolltoline, 1000)
 
 
 

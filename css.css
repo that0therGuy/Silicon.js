@@ -51,6 +51,7 @@ body{
 
     background: linear-gradient(to top left, rgba(0,0,0,1) 0%, rgba(47,0,70,1) 100%);
     height:100vh;
+    padding-top:5px;
 }
 .container{
     display:flex;
@@ -155,7 +156,7 @@ button:hover{
 
 
 #editor{
-    width:30vw;
+    width:50vw;
     height:100%;
     border-radius: 10px;
     resize: horizontal;
@@ -379,13 +380,20 @@ input[type=number] {
 p{
     margin-right:5px;
 }
-.linesc{
+.linesc,.cpos,.scrolltod{
     border:2px solid rgb(93, 0, 100);
     padding:4px;
     border-radius:4px;
     background: linear-gradient(to top left, rgb(56, 6, 68), rgb(75, 4, 75)) ;
     box-shadow: 6px 6px 25px rgba(170, 0, 85, 0.2);
 
+
+}
+.scrolltod{
+    transition: all .5s ;
+}
+.cpos,.scrolltod{
+    opacity: .7;
 }
 .file{
     transition: all .5s;
@@ -395,4 +403,18 @@ p{
     margin-left:5px;
     padding:5px;
 
+}
+.scrollto{
+    border:1px solid rgb(125, 30, 133);
+    padding:4px;
+    border-radius:4px;
+    background: linear-gradient(to top left, rgb(56, 6, 68), rgb(75, 4, 75)) ;
+    box-shadow: 6px 6px 25px rgba(170, 0, 85, 0.2);
+    width:2rem;
+    text-align: center;
+    height:9px;
+
+}
+.scrollto:focus{
+    outline:none;
 }
