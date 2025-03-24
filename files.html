@@ -83,13 +83,17 @@
 
     for (let [key, value] of files.entries()) {
         const div = document.createElement('div');
+
         div.style.display = 'flex';
+        div.style.justifyContent= 'space-between';
+
         div.style.gap = '50px';
         div.style.marginBottom = '20px';
         document.querySelector('.files').appendChild(div);
 
         const fileHeading = document.createElement('h2');
         fileHeading.innerText = key;
+        fileHeading.style='text-shadow:0 0 35px rgba(182,31,255,.7);'
 
         const textarea = document.createElement('textarea');
         textarea.value = value;
