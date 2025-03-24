@@ -71,27 +71,47 @@
     checkforfont()
     let div;
     let file2;
-
-
-
-    const Z= JSON.parse(localStorage.getItem('files'));
-    const files = new Map(Object.entries(Z));
-
-    for(let x of files.entries()){
-
-        div = document.createElement('div')
-        div.setAttribute('style','display:flex;gap:50px;margin-bottom:20px;')
-        document.querySelector('.files').appendChild(div)
-        let file= document.createElement('h2')
-        file2= document.createElement('textarea')
-        file2.setAttribute('disabled','true')
-        file.innerText=x[1][0];
-        file2.value=x[1][1];
-        div.appendChild(file)
-        div.appendChild(file2)
-
-
+    if (localStorage.getItem('number')==null){
+        localStorage.setItem('number','1')
     }
+
+
+
+
+    const storedFiles = JSON.parse(localStorage.getItem('files') || '[]');
+    files = new Map(storedFiles);
+
+    for (let [key, value] of files.entries()) {
+        const div = document.createElement('div');
+        div.style.display = 'flex';
+        div.style.gap = '50px';
+        div.style.marginBottom = '20px';
+        document.querySelector('.files').appendChild(div);
+
+        const fileHeading = document.createElement('h2');
+        fileHeading.innerText = key;
+
+        const textarea = document.createElement('textarea');
+        textarea.value = value;
+
+
+        textarea.setAttribute('data-key', key);
+
+        textarea.addEventListener("input", function () {
+            const fileKey = this.getAttribute('data-key');
+            const updatedContent = this.value;
+
+            let fileData = files.get(fileKey);
+            if (fileData) {
+                files.set(fileKey, [fileData[0], updatedContent]);
+                localStorage.setItem('files', JSON.stringify([...files]));
+            }
+        });
+
+        div.appendChild(fileHeading);
+        div.appendChild(textarea);
+    }
+
 
 </script>
 </body>

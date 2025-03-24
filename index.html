@@ -110,7 +110,18 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
             localStorage.setItem('files', JSON.stringify([...files]));
         },
         getFile: function(name){
-            return files.get(name)
+            const storedFilesArray = JSON.parse(localStorage.getItem('files') || '[]');
+            const fileMap = new Map(storedFilesArray);
+
+            const targetFileName = name;
+
+            for (let [key, fileData] of fileMap.entries()) {
+                if (key === targetFileName) {
+                    return String(fileData);
+
+                }
+            }
+
         }
     }
     let tensorflow = tf
