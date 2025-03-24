@@ -156,12 +156,12 @@ button:hover{
 
 
 #editor{
-    width:50vw;
+    width:55vw;
     height:100%;
     border-radius: 10px;
     resize: horizontal;
     overflow: auto;
-    max-width:60vw;
+    max-width:65vw;
 
 }
 .codecontainer{
