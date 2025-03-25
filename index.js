@@ -12,3 +12,34 @@ function this_is_demise_(){
     }
     console.log(arr);
 }
+let helper={
+    fileRegister: function (name,file){
+        file.text().then((text) => {
+            files.set(name,text)
+
+            localStorage.setItem('files', JSON.stringify([...files]));
+        });
+
+    },
+    fileDelete: function (name){
+        files.delete(name)
+        localStorage.setItem('files', JSON.stringify([...files]));
+    },
+    getFile: function(name){
+        const storedFilesArray = JSON.parse(localStorage.getItem('files') || '[]');
+        const fileMap = new Map(storedFilesArray);
+
+        const targetFileName = name;
+
+        for (let [key, fileData] of fileMap.entries()) {
+            if (key === targetFileName) {
+                return String(fileData);
+
+            }
+        }
+
+    },
+    deleteAll: function(){
+        localStorage.setItem('files', null)
+    }
+}

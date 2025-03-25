@@ -9,15 +9,27 @@
 
 </head>
 <body>
-<div class="container" style="gap:20px;">
+
+<div class="container" style="gap:20px;height:40vh;">
     <H1><span>📚</span> Files</H1>
-    <div class="files">
-
-    </div>
 
 
-    <a href="index.html">< Back to editor > </a>
+
 </div>
+<div class="files" style="display:flex;justify-content: center;align-items: center; flex-direction: column">
+
+</div>
+<div style="display: flex;justify-content: center;align-items: center;">
+    <a href="index.html" style="">< Back to editor > </a>
+</div>
+
+<style>
+    body{
+        height:100%;
+    }
+</style>
+
+
 <script>
     function checkforfont(){
 
@@ -83,12 +95,14 @@
 
     for (let [key, value] of files.entries()) {
         const div = document.createElement('div');
+        div.style.display='flex'
+        div.style.flexDirection='column'
 
-        div.style.display = 'flex';
-        div.style.justifyContent= 'space-between';
 
-        div.style.gap = '50px';
-        div.style.marginBottom = '20px';
+
+
+
+        div.style.marginBottom = '60px';
         document.querySelector('.files').appendChild(div);
 
         const fileHeading = document.createElement('h2');
@@ -98,9 +112,9 @@
         const textarea = document.createElement('textarea');
         textarea.value = value;
 
-
+        textarea.style.minHeight='150px'
         textarea.setAttribute('data-key', key);
-
+        textarea.style.resize = 'both';
         textarea.addEventListener("input", function () {
             const fileKey = this.getAttribute('data-key');
             const updatedContent = this.value;
