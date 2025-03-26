@@ -90,14 +90,16 @@ h6{
     font-size:15px;
 }
 a{
-    margin:10px;
+
     text-decoration: none;
     transition:all .4s;
     text-align: center;
     font-weight:bold;
-    z-index:9999999999;
+    z-index:auto;
     white-space: nowrap;
-
+    display: inline-block;
+    padding-left:10px;
+    padding-right:10px;
     user-select: none;
 
 
@@ -115,8 +117,10 @@ h1:hover{
     background-clip: text;
 }
 a:hover{
-    filter:blur(1px);
-    transform:translateY(1px);
+
+    height:30px;
+    padding-left:15px;
+    padding-right:15px;
 }
 
 .CodeMirror{
@@ -143,6 +147,7 @@ textarea{
     resize:horizontal;
     overflow: auto;
     max-width:40vw;
+    z-index: 100;
 
 
 }
@@ -298,7 +303,10 @@ input[type=number] {
     border: 2px solid #624879 !important;
 }
 
+.glow{
+    position: absolute;
 
+}
 .CodeMirror-hint-active {
     background: #601e91 !important;
     color: #edd8ff !important;

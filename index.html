@@ -10,7 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
 
     <link rel="stylesheet" href="css.css">
-    
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.14/codemirror.min.js"></script>
@@ -31,7 +31,7 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://unpkg.com/compromise"></script>
     <script src="https://cdn.jsdelivr.net/npm/sci.js@latest/dist/sci.min.js"></script>
-    
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/javascript-hint.min.js"></script>
 </head>
@@ -81,12 +81,12 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
 <div class="ag" >
     <a class="time"></a>
 
-    <a href="info.html">< Info ></a>
-    <a href="styles.html">< Styles ></a>
-    <a href="files.html">< Files ></a>
+    <a href="info.html" class="a0">< Info ></a>
+    <a href="styles.html" class="a1">< Styles ></a>
+    <a href="files.html" class="a2">< Files ></a>
 
-    <a class="proj" href="proj.html">< Project Settings ></a>
-    <a href="https://github.com/that0therGuy" class="sp_link">< @that0therguy ></a>
+    <a class="proj a3" href="proj.html" >< Project Settings ></a>
+    <a href="https://github.com/that0therGuy" class="sp_link a4">< @that0therguy ></a>
 
 
 </div>
@@ -607,6 +607,90 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     function lose(){
         document.querySelector('.scrolltod').style.filter = 'none';
     }
+    document.querySelector('.a0').addEventListener('mouseover', () => {
+        document.querySelector('.a0').style.transform='translateY(-13px)'
+        document.querySelector('.a1').style.transform='translateY(-6px)'
+        document.querySelector('.a2').style.transform='translateY(-3px)'
+
+    })
+    document.querySelector('.a1').addEventListener('mouseover', () => {
+        document.querySelector('.a0').style.transform='translateY(-6px)'
+        document.querySelector('.a1').style.transform='translateY(-13px)'
+        document.querySelector('.a2').style.transform='translateY(-6px)'
+        document.querySelector('.a3').style.transform='translateY(-3px)'
+
+    })
+    document.querySelector('.a2').addEventListener('mouseover', () => {
+        document.querySelector('.a0').style.transform='translateY(-3px)'
+        document.querySelector('.a1').style.transform='translateY(-6px)'
+        document.querySelector('.a2').style.transform='translateY(-13px)'
+        document.querySelector('.a3').style.transform='translateY(-6px)'
+        document.querySelector('.a4').style.transform='translateY(-3px)'
+
+    })
+    document.querySelector('.a3').addEventListener('mouseover', () => {
+        document.querySelector('.a1').style.transform='translateY(-3px)'
+        document.querySelector('.a2').style.transform='translateY(-6px)'
+        document.querySelector('.a3').style.transform='translateY(-13px)'
+        document.querySelector('.a4').style.transform='translateY(-6px)'
+        document.querySelector('.a5').style.transform='translateY(-3px)'
+    })
+    document.querySelector('.a3').addEventListener('mouseover', () => {
+        document.querySelector('.a1').style.transform='translateY(-3px)'
+        document.querySelector('.a2').style.transform='translateY(-6px)'
+        document.querySelector('.a3').style.transform='translateY(-13px)'
+        document.querySelector('.a4').style.transform='translateY(-6px)'
+    })
+    document.querySelector('.a4').addEventListener('mouseover', () => {
+        document.querySelector('.a2').style.transform='translateY(-3px)'
+        document.querySelector('.a3').style.transform='translateY(-6px)'
+        document.querySelector('.a4').style.transform='translateY(-13px)'
+    })
+
+
+
+    document.querySelector('.a0').addEventListener('mouseout', () => {
+        document.querySelector('.a0').style.transform='translateY(0)'
+        document.querySelector('.a1').style.transform='translateY(0)'
+        document.querySelector('.a2').style.transform='translateY(0)'
+
+    })
+    document.querySelector('.a1').addEventListener('mouseout', () => {
+        document.querySelector('.a0').style.transform='translateY(0)'
+        document.querySelector('.a1').style.transform='translateY(0)'
+        document.querySelector('.a2').style.transform='translateY(0)'
+        document.querySelector('.a3').style.transform='translateY(0)'
+
+    })
+    document.querySelector('.a2').addEventListener('mouseout', () => {
+        document.querySelector('.a0').style.transform='translateY(0)'
+        document.querySelector('.a1').style.transform='translateY(0)'
+        document.querySelector('.a2').style.transform='translateY(0)'
+        document.querySelector('.a3').style.transform='translateY(0)'
+        document.querySelector('.a4').style.transform='translateY(0)'
+
+    })
+    document.querySelector('.a3').addEventListener('mouseout', () => {
+        document.querySelector('.a1').style.transform='translateY(0)'
+        document.querySelector('.a2').style.transform='translateY(0)'
+        document.querySelector('.a3').style.transform='translateY(0)'
+        document.querySelector('.a4').style.transform='translateY(0)'
+        document.querySelector('.a5').style.transform='translateY(0)'
+    })
+    document.querySelector('.a3').addEventListener('mouseout', () => {
+        document.querySelector('.a1').style.transform='translateY(0)'
+        document.querySelector('.a2').style.transform='translateY(0)'
+        document.querySelector('.a3').style.transform='translateY(0)'
+        document.querySelector('.a4').style.transform='translateY(0)'
+    })
+    document.querySelector('.a4').addEventListener('mouseout', () => {
+        document.querySelector('.a2').style.transform='translateY(0)'
+        document.querySelector('.a3').style.transform='translateY(0)'
+        document.querySelector('.a4').style.transform='translateY(0)'
+    })
+
+
+
 
 
 
