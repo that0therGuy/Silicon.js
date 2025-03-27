@@ -462,7 +462,7 @@ p{
     translate:-50% -50%;
     border-radius:50%;
     background: linear-gradient(90deg, rgba(33, 150, 223, 0.5) 0%, rgba(251, 32, 127, 0.78) 100%);
-    animation:change 10s infinite;
+    animation:change 10s infinite linear;
     opacity: .3;
     filter:blur(900px);
     z-index: 0;
