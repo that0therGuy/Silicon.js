@@ -461,8 +461,8 @@ p{
     right:50%;
     translate:-50% -50%;
     border-radius:50%;
-    background: linear-gradient(90deg, rgba(118, 60, 181, 0.5) 0%, rgba(154, 48, 92, 0.5) 100%);
-    animation:change 20s infinite;
+    background: linear-gradient(90deg, rgba(33, 150, 223, 0.5) 0%, rgba(251, 32, 127, 0.78) 100%);
+    animation:change 10s infinite;
     opacity: .3;
     filter:blur(900px);
     z-index: 0;
