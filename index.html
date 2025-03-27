@@ -36,6 +36,7 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/javascript-hint.min.js"></script>
 </head>
 <body>
+<div class="blur"></div>
 <div class="container">
     <h1 class="main">< <span class="mainn" data-value="Notepad.js">Notepad.js</span> ></h1>
     <h5 data-value="A Simple yet Elegant Javascript code editor">A Simple yet Elegant Javascript code editor</h5>
@@ -79,7 +80,7 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
 </div>
 
 <div class="ag" >
-    <a class="time"></a>
+    <a class="time a9"></a>
 
     <a href="info.html" class="a0">< Info ></a>
     <a href="styles.html" class="a1">< Styles ></a>
@@ -607,7 +608,14 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     function lose(){
         document.querySelector('.scrolltod').style.filter = 'none';
     }
+    document.querySelector('.a9').addEventListener('mouseover', () => {
+        document.querySelector('.a9').style.transform='translateY(-13px)'
+        document.querySelector('.a0').style.transform='translateY(-6px)'
+        document.querySelector('.a1').style.transform='translateY(-3px)'
+
+    })
     document.querySelector('.a0').addEventListener('mouseover', () => {
+        document.querySelector('.a9').style.transform='translateY(-6px)'
         document.querySelector('.a0').style.transform='translateY(-13px)'
         document.querySelector('.a1').style.transform='translateY(-6px)'
         document.querySelector('.a2').style.transform='translateY(-3px)'
@@ -647,9 +655,16 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
         document.querySelector('.a4').style.transform='translateY(-13px)'
     })
 
+    document.querySelector('.a9').addEventListener('mouseout', () => {
+        document.querySelector('.a9').style.transform='translateY(0px)'
+        document.querySelector('.a0').style.transform='translateY(0px)'
+        document.querySelector('.a1').style.transform='translateY(0px)'
 
+    })
 
     document.querySelector('.a0').addEventListener('mouseout', () => {
+        document.querySelector('.a9').style.transform='translateY(0)'
+
         document.querySelector('.a0').style.transform='translateY(0)'
         document.querySelector('.a1').style.transform='translateY(0)'
         document.querySelector('.a2').style.transform='translateY(0)'
@@ -690,8 +705,22 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     })
 
 
+    document.body.onpointermove= event=>{
+        const {clientX,clientY}= event
+        document.querySelector('.blur').animate({
+            top:`${clientY}px`,
+            left:`${clientX}px`
+        },{duration:2000,fill:'forwards'})
 
 
+
+    }
+    if (localStorage.getItem('blob')==='true'){
+        document.querySelector('.blur').style.display='block';
+    }
+    else if(localStorage.getItem('blob')==='false'){
+        document.querySelector('.blur').style.display='none';
+    }
 
 
 

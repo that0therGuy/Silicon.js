@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<div class="blur"></div>
+
 <div class="container" style="gap:20px;">
     <H1 style="margin:25px;"><span>🔮</span> Styles</H1>
     <div class="fg" >
@@ -26,12 +28,15 @@
     <div class="cursor">
         <button class="cursorb">Custom Cursor</button><h5 class="cursorc">Jetbrains Mono</h5>
     </div>
+    <div class="blobd">
+        <button class="blobb">The Blob</button> <h5 class="blobc">True</h5>
+    </div>
     <h5>You can style it further using Javascript!</h5>
 
     <a href="index.html">< Back to editor > </a>
 </div>
 <style>
-    .fg,.plain,.font,.console{
+    .fg,.plain,.font,.console,.blobd{
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -50,6 +55,16 @@
 </style>
 <script src='index.js'></script>
 <script>
+    document.body.onpointermove= event=>{
+        const {clientX,clientY}= event
+        document.querySelector('.blur').animate({
+            top:`${clientY}px`,
+            left:`${clientX}px`
+        },{duration:2000,fill:'forwards'})
+
+
+
+    }
 
 
     let isplain = localStorage.getItem('isplain') === "true" ;
@@ -292,6 +307,75 @@
 
 
     updateH6State1c();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if(localStorage.getItem('blob')==null){
+        localStorage.setItem('blob','true')
+    }
+
+    let isblob = localStorage.getItem('blob') === "true" ;
+
+    let h6z = document.querySelector(".blobc");
+    function updateH6Statehjj() {
+        if (isblob) {
+            h6z.style.background = 'linear-gradient(90deg, rgb(207, 255, 205) 0%, rgba(61, 255, 31, 0.8) 100%)';
+            h6z.innerHTML = 'True';
+            h6z.style.webkitBackgroundClip = 'text';
+            h6z.style.webkitTextFillColor = 'transparent';
+        } else {
+            h6z.innerHTML = 'False';
+            h6z.style.background = 'linear-gradient(90deg, rgb(255, 205, 205) 0%, rgba(117, 0, 0, 0.8) 100%)';
+            h6z.style.webkitBackgroundClip = 'text';
+            h6z.style.webkitTextFillColor = 'transparent';
+        }
+        if (localStorage.getItem('blob')==='true'){
+            document.querySelector('.blur').style.display='block';
+        }
+        else if(localStorage.getItem('blob')==='false'){
+            document.querySelector('.blur').style.display='none';
+        }
+
+    }
+    updateH6Statehjj();
+
+
+
+    document.querySelector('.blobb').addEventListener('click', () => {
+        isblob = !isblob;
+        localStorage.setItem('blob', isblob);
+
+
+
+        updateH6Statehjj();
+    });
+
+
+
+
+    if (localStorage.getItem('blob')==='true'){
+        document.querySelector('.blur').style.display='block';
+    }
+    else if(localStorage.getItem('blob')==='false'){
+        document.querySelector('.blur').style.display='none';
+    }
 
 
 

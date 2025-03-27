@@ -9,6 +9,8 @@
 
 </head>
 <body>
+<div class="blur"></div>
+
 
 <div class="container" style="gap:20px;height:40vh;">
     <H1><span>📚</span> Files</H1>
@@ -31,6 +33,22 @@
 
 
 <script>
+    document.body.onpointermove= event=>{
+        const {clientX,clientY}= event
+        document.querySelector('.blur').animate({
+            top:`${clientY}px`,
+            left:`${clientX}px`
+        },{duration:2000,fill:'forwards'})
+
+
+
+    }
+    if (localStorage.getItem('blob')==='true'){
+        document.querySelector('.blur').style.display='block';
+    }
+    else if(localStorage.getItem('blob')==='false'){
+        document.querySelector('.blur').style.display='none';
+    }
     function checkforfont(){
 
         if (localStorage.getItem('font')==1){

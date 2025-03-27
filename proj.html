@@ -29,11 +29,19 @@
     img{
       margin:0;
     }
+    body{
+      height: 100%;
+    }
+    a{
+      margin-bottom: 20px;
+    }
 
   </style>
 
 </head>
 <body>
+<div class="blur"></div>
+
 <div class="container" style="gap:20px;overflow-y: auto;justify-content:center;">
   <H1 style="margin-top:10rem;"><span>📜</span> Project Settings</H1>
   <h5>Downloads:</h5>
@@ -91,6 +99,22 @@
 </div>
 
 <script>
+  document.body.onpointermove= event=>{
+    const {clientX,clientY}= event
+    document.querySelector('.blur').animate({
+      top:`${clientY}px`,
+      left:`${clientX}px`
+    },{duration:2000,fill:'forwards'})
+
+
+
+  }
+  if (localStorage.getItem('blob')==='true'){
+    document.querySelector('.blur').style.display='block';
+  }
+  else if(localStorage.getItem('blob')==='false'){
+    document.querySelector('.blur').style.display='none';
+  }
   document.querySelector('.cooldown').value=localStorage.getItem('cooldown')
 
   function checkforfont(){
