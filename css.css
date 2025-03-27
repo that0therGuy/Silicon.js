@@ -26,15 +26,20 @@
 
     }
 }
+
 @keyframes backg{
 
     0%{
         filter: blur(5px);
 
 
+
     }
     100%{
-        filter: blur(0);
+        filter: none;
+        height:auto;
+
+
 
     }
 }
@@ -472,4 +477,34 @@ p{
     to{
         transform: rotate(360deg);
     }
+}
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+
+}
+@keyframes appear2 {
+    from{
+        scale: 2;
+        margin:90vh;
+        opacity: 0;
+    }
+
+    to{
+        scale: 1;
+        margin:0;
+        opacity:1;
+
+    }
+
+}
+a{
+    animation: appear 1s;
+}
+.mainn{
+    animation: appear2 1s ease-in-out;
 }

@@ -8,7 +8,7 @@
     <link rel="icon" href="img.png" type="image/x-icon">
     <title>New Notepad</title>
     <script src="https://cdn.jsdelivr.net/npm/danfojs@1.1.2/lib/bundle.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/parallax/3.1.0/parallax.min.js"></script>
     <link rel="stylesheet" href="css.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/show-hint.min.css">
@@ -35,10 +35,11 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/hint/javascript-hint.min.js"></script>
 </head>
-<body>
+<body >
 <div class="blur"></div>
-<div class="container">
-    <h1 class="main">< <span class="mainn" data-value="Notepad.js">Notepad.js</span> ></h1>
+<div class="container" >
+
+    <h1 class="main" >< <span class="mainn"  data-value="Notepad.js">Notepad.js</span> ></h1>
     <h5 data-value="A Simple yet Elegant Javascript code editor">A Simple yet Elegant Javascript code editor</h5>
 
     <div class="codecontainer" >
@@ -641,7 +642,6 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
         document.querySelector('.a2').style.transform='translateY(-6px)'
         document.querySelector('.a3').style.transform='translateY(-13px)'
         document.querySelector('.a4').style.transform='translateY(-6px)'
-        document.querySelector('.a5').style.transform='translateY(-3px)'
     })
     document.querySelector('.a3').addEventListener('mouseover', () => {
         document.querySelector('.a1').style.transform='translateY(-3px)'
@@ -721,6 +721,16 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     else if(localStorage.getItem('blob')==='false'){
         document.querySelector('.blur').style.display='none';
     }
+
+
+
+
+
+
+
+
+
+
 
 
 
