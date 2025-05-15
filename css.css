@@ -489,13 +489,13 @@ p{
 }
 @keyframes appear2 {
     from{
-        scale: 2;
+
         margin:90vh;
         opacity: 0;
     }
 
     to{
-        scale: 1;
+
         margin:0;
         opacity:1;
 
