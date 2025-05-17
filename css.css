@@ -55,7 +55,6 @@ html{
 body{
 
     background: linear-gradient(to top left, rgba(0,0,0,1) 0%, rgba(47,0,70,1) 100%);
-
     padding-top:5px;
 
 }
@@ -490,7 +489,7 @@ p{
 @keyframes appear2 {
     from{
 
-        margin:90vh;
+        margin:10vw;
         opacity: 0;
     }
 
@@ -508,3 +507,7 @@ a{
 .mainn{
     animation: appear2 1s ease-in-out;
 }
+html, body {
+    height: 100% !important;
+}
+
