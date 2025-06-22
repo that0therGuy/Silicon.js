@@ -414,7 +414,7 @@ input[type=number] {
 p{
     margin-right:5px;
 }
-.linesc,.cpos,.scrolltod{
+.linesc,.cpos,.scrolltod,.gemini{
     border:2px solid rgb(93, 0, 100);
     padding:4px;
     border-radius:4px;
@@ -511,3 +511,30 @@ html, body {
     height: 100% !important;
 }
 
+.gemini{
+    background: linear-gradient(to top left, rgb(0, 45, 128), rgb(94, 0, 181)) ;
+    border:2px solid rgb(81, 130, 221);
+    width:fit-content;
+
+
+
+}
+.gemkey{
+    background: linear-gradient(to top left, rgb(51, 16, 43) 0%, rgb(74, 24, 44) 100%);
+    border: none;
+    outline: none;
+    padding: 7px;
+    border-radius: 3px;
+    text-align: center;
+
+
+}
+.gemini{
+    transition: all .5s;
+}
+
+.gemini:hover{
+    margin-left:5px;
+    padding:5px;
+
+}
