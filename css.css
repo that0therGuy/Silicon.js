@@ -7,6 +7,9 @@
     color: rgb(211, 153, 255);
     caret-color: white;
 }
+html, body {
+    overflow-x: hidden;
+}
 ::-webkit-scrollbar{
     background-color: #220a38 ;
 
