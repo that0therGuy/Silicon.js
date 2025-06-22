@@ -257,7 +257,11 @@ button:hover{
     display:none;
 }
 .ag{
-    text-align: center;display:block;
+    text-align: center;
+    display: inline-block;
+
+    position: relative;
+    margin-top:40px;
 }
 /*zsscS*/
 
