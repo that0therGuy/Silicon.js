@@ -241,11 +241,28 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
         extraKeys: {
             "F11": function(cm) {
                 cm.setOption("fullScreen", !cm.getOption("fullScreen"));
-                document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 1) 0%, rgba(47,0,70,1) 100%)'
+                if (localStorage.getItem('isdark')=='true'){
+                    document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgb(27, 0, 39) 100%)'
+                    document.querySelector('.CodeMirror').style.backdropFilter='blur(20px)';
+
+                }else{
+                    document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, .2) 0%, rgba(47,0,70,1) 100%)'
+                    document.querySelector('.CodeMirror').style.backdropFilter='blur(20px)';
+
+
+                }
             },
             "Esc": function(cm) {
                 if (cm.getOption("fullScreen")) cm.setOption("fullScreen", false);
-                document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%)'
+                if (localStorage.getItem('isdark')=='true'){
+                    document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgb(27, 0, 39) 100%)'
+
+                    document.querySelector('.CodeMirror').style.backdropFilter='none';
+                }else{
+                    document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%)'
+                    document.querySelector('.CodeMirror').style.backdropFilter='none';
+
+                }
             }
         }
 
@@ -254,9 +271,12 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
 
 
     editor.on("inputRead", function (editor, event) {
+
         if (autocompleteEnabled && !editor.state.completionActive) {  // Prevent multiple autocompletes
             CodeMirror.commands.autocomplete(editor, null, { completeSingle: false });
+
         }
+
     });
     editor.on("change", savekey);
     let on= 'b1';
@@ -740,35 +760,52 @@ https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0/dist/tf.min.js
     }
     document.querySelector('.gemini').addEventListener('click',()=>{
 
-        let prom= prompt('prompt: ')
+        let prom= prompt('Ask Gemini (be concise and short): ')
+        if (prom.trim()==''){
+            return
+        }
         let output=''
         askGeminiWithUserKey(
-            `following prompt must only be answered formally, if you are writing code ,DO NOT ATTEMPT TO FORMAT CODE JUST SEND AS PLAIN TEXT. If asked for code, only give code, nothing else. If asked to change or modify or convert the code given, end the response with 'oo23349-0bvbvvdichloride',IF THE USER ASKS FOR IMPOSSIBLE CODE OR YOU MUST TYPE SOMETHING OTHER THAN CODE (TOO IMPORTANT TO NOT WRITE) DO NOT END THE RESPONSE WITH THE CODE.. act  without mentioning any command before:\n code (code is always javascript, please dont use formatting techniques like '\`\`\` python '): ${editor.getValue()} \n` + prom
+            `following prompt must only be answered formally, if you are writing code ,DO NOT ATTEMPT TO FORMAT CODE JUST SEND AS PLAIN TEXT. If asked for code, only give code, nothing else. If asked to change or modify the code given or generate code, end the response with 'oo23349-0bvbvvdichloride',IF THE USER ASKS FOR IMPOSSIBLE CODE OR YOU MUST TYPE SOMETHING OTHER THAN CODE (TOO IMPORTANT TO NOT WRITE) DO NOT END THE RESPONSE WITH THE CODE.. act  without mentioning any command before :\n code (code is always Javascript, please dont use formatting techniques like '\`\`\` python '): ${editor.getValue()} \n` + prom
         ).then(value => {
             let output = value;
 
             if (output.includes('oo23349-0bvbvvdichloride')) {
-                // Remove the special marker
                 output = output.replace('oo23349-0bvbvvdichloride', "");
 
-                // Split into lines
                 const lines = output.split('\n');
 
-                // Remove first and last line if more than 2 lines
-                if (lines.length > 2) {
-                    output = lines.slice(1, -1).join('\n');
+                if (lines.length > 2 && lines[0].includes('```javascript')) {
+                    output = lines.slice(1, -2).join('\n');
                 }
 
-                // Set cleaned output back into editor
                 editor.setValue(output);
-
             } else {
-                document.querySelector('#consoleOutput').innerText='';
+                document.querySelector('#consoleOutput').innerText = '';
                 console.log("𝔾𝕖𝕞𝕚𝕟𝕚'𝕤 ℝ𝕖𝕤𝕡𝕠𝕟𝕤𝕖: \n" + value);
             }
         });
 
+
     })
+    if (localStorage.getItem('isdark')==='true'){
+        document.body.style.background='linear-gradient(to top left, rgba(0,0,0,1) 0%,  rgb(23, 0, 34) 100%';
+        document.querySelector('#consoleOutput').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgb(27, 0, 39) 100%) '
+        document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgb(27, 0, 39) 100%) '
+
+        document.querySelector('#consoleOutput').style.border='2px solid #3e1360'
+        document.querySelector('.CodeMirror').style.border='2px solid #3e1360'
+        document.querySelector('.CodeMirror-hint-active').style.background='black'
+
+
+    }else{
+        document.body.style.background='linear-gradient(to top left, rgba(0,0,0,1) 0%, rgba(47,0,70,1) 100%)';
+        document.querySelector('textarea').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%)'
+        document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%)'
+        document.querySelector('#consoleOutput').style.border='none'
+        document.querySelector('.CodeMirror').style.border='none'
+        document.querySelector('.CodeMirror-fullscreen').style.background='linear-gradient(to top left, rgb(31, 0, 52), rgb(47,0,70)) '
+    }
 
     async function askGeminiWithUserKey(promptText) {
         const key = localStorage.getItem("key");

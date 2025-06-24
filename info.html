@@ -56,6 +56,7 @@
 
 </style>
 <script>
+
     document.body.onpointermove= event=>{
         const {clientX,clientY}= event
         document.querySelector('.blur').animate({
@@ -122,6 +123,20 @@
         }
     }
     checkforfont()
+    if (localStorage.getItem('isdark')==='true'){
+        document.body.style.background='linear-gradient(to top left, rgba(0,0,0,1) 0%,  rgb(23, 0, 34) 100%';
+        document.querySelector('#consoleOutput').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgb(27, 0, 39) 100%) '
+        document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgb(27, 0, 39) 100%) '
+        document.querySelector('#consoleOutput').style.border='2px solid #3e1360'
+        document.querySelector('.CodeMirror').style.border='2px solid #3e1360'
+
+    }else{
+        document.body.style.background='linear-gradient(to top left, rgba(0,0,0,1) 0%, rgba(47,0,70,1) 100%)';
+        document.querySelector('textarea').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%)'
+        document.querySelector('.CodeMirror').style.background='linear-gradient(to top left, rgba(31, 0, 52, 0.2) 0%, rgba(47,0,70,1) 100%)'
+        document.querySelector('#consoleOutput').style.border='none'
+        document.querySelector('.CodeMirror').style.border='none'
+    }
 </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
 
     margin:0;
     padding:0;
-    color: rgb(211, 153, 255);
+    color: rgb(219, 174, 255);
     caret-color: white;
 }
 html, body {
@@ -57,7 +57,7 @@ html{
 }
 body{
 
-    background: linear-gradient(to top left, rgba(0,0,0,1) 0%, rgba(47,0,70,1) 100%);
+    background: linear-gradient(to top left, rgba(0,0,0,1) 0%, rgb(23, 0, 34) 100%);
     padding-top:5px;
 
 }
@@ -163,7 +163,6 @@ textarea{
     resize:horizontal;
     overflow: auto;
     max-width:40vw;
-    z-index: 100;
 
 
 }
@@ -280,7 +279,10 @@ button:hover{
 
 }
 .CodeMirror-linenumber{
-    color: #a245ff !important;
+    color: #e37eff !important;
+    text-shadow:0 0 20px rgba(251, 61, 255, 1);
+
+
 
 }
 ::selection{
@@ -337,22 +339,53 @@ input[type=number] {
 }
 
 .cm-def {
-    color: #d9b504 !important;
+    color: #ffb26c !important;
+    text-shadow:0 0 20px rgba(156, 125, 47, 0.5);
+
+}
+
+
+.cm-property{
+    color: #6fd6af !important;
+    text-shadow:0 0 20px rgba(11, 189, 157, 0.5);
 
 }
 .cm-keyword{
-    color: #ff579a !important;
+    color: #00ff93 !important;
+    text-shadow:0 0 20px rgba(11, 189, 94, 0.5);
+
+}
+.cm-variable-3{
+    color:black !important;
 }
 .cm-number,.number-span{
-    color: #128c00 !important;
+    color: #ffe44e !important;
+    text-shadow:0 0 20px rgba(189, 153, 11, 0.5);
+
+
+}
+.cm-comment{
+    color: #7f31ff !important;
+}
+.cm-variable-2{
+    color: #50ffe5 !important;
+    text-shadow:0 0 20px rgba(11, 189, 189, 0.5);
+
+}
+.cm-string{
+    color: #6aff20 !important;
+    text-shadow:0 0 20px rgb(24, 255, 36,.5);
 
 }
 .cm-atom{
-    color: #f1a66e !important;  /* Yellow */
+    color: #f1a66e !important;
+    text-shadow:0 0 20px rgba(189, 85, 11, 0.5);
     font-weight: bold;
 }
 .toggle-btn {
-    color: #f1a66e !important;  /* Yellow */
+    color: #e86ef1 !important;
+    text-shadow:0 0 20px rgba(165, 11, 189, 0.5);
+    /* Yellow */
     font-weight: bold;
     font-family:inherit !important;
     margin:0;
@@ -526,7 +559,7 @@ html, body {
 
 }
 .gemkey{
-    background: linear-gradient(to top left, rgb(51, 16, 43) 0%, rgb(74, 24, 44) 100%);
+    background: linear-gradient(to top left, rgb(28, 16, 51) 0%, rgb(57, 24, 74) 100%);
     border: none;
     outline: none;
     padding: 7px;
