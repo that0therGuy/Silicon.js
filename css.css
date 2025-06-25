@@ -59,13 +59,17 @@ body{
 
     background: linear-gradient(to top left, rgba(0,0,0,1) 0%, rgb(23, 0, 34) 100%);
     padding-top:5px;
+    margin:0;
+
 
 }
 .container{
+    margin:10px;
     display:flex;
     justify-content: center;
     align-items: center;
-    height:100svh;
+    height:100%;
+
     flex-direction: column;
     gap:5px;
 }
@@ -108,6 +112,7 @@ a{
     padding-left:10px;
     padding-right:10px;
     user-select: none;
+    margin-bottom:20px;
 
 
 }
@@ -157,9 +162,10 @@ a:hover{
 }
 textarea{
 
-    box-shadow:0 0 25px rgba(42, 0, 54, 0.3);
+
+    box-shadow:0 0 25px rgba(0, 33, 54, 0.3);
     width:30vw;
-    height:78%;
+    height:300px;
     resize:horizontal;
     overflow: auto;
     max-width:40vw;
@@ -340,19 +346,19 @@ input[type=number] {
 
 .cm-def {
     color: #ffb26c !important;
-    text-shadow:0 0 20px rgba(156, 125, 47, 0.5);
+    text-shadow:0 0 20px rgba(221, 206, 168, 0.6);
 
 }
 
 
 .cm-property{
     color: #6fd6af !important;
-    text-shadow:0 0 20px rgba(11, 189, 157, 0.5);
+    text-shadow:0 0 20px rgba(153, 237, 222, 0.6);
 
 }
 .cm-keyword{
     color: #00ff93 !important;
-    text-shadow:0 0 20px rgba(11, 189, 94, 0.5);
+    text-shadow:0 0 20px rgba(150, 250, 197, 0.6);
 
 }
 .cm-variable-3{
@@ -360,31 +366,33 @@ input[type=number] {
 }
 .cm-number,.number-span{
     color: #ffe44e !important;
-    text-shadow:0 0 20px rgba(189, 153, 11, 0.5);
+    text-shadow:0 0 20px rgba(234, 218, 155, 0.6);
 
 
 }
 .cm-comment{
     color: #7f31ff !important;
+    text-shadow:0 0 20px rgba(191, 155, 234, 0.3);
+
 }
 .cm-variable-2{
     color: #50ffe5 !important;
-    text-shadow:0 0 20px rgba(11, 189, 189, 0.5);
+    text-shadow:0 0 20px rgba(161, 236, 236, 0.6);
 
 }
 .cm-string{
     color: #6aff20 !important;
-    text-shadow:0 0 20px rgb(24, 255, 36,.5);
+    text-shadow:0 0 20px rgba(153, 234, 157, 0.6);
 
 }
 .cm-atom{
     color: #f1a66e !important;
-    text-shadow:0 0 20px rgba(189, 85, 11, 0.5);
+    text-shadow:0 0 20px rgba(205, 161, 129, 0.6);
     font-weight: bold;
 }
 .toggle-btn {
     color: #e86ef1 !important;
-    text-shadow:0 0 20px rgba(165, 11, 189, 0.5);
+    text-shadow:0 0 20px rgba(204, 128, 216, 0.6);
     /* Yellow */
     font-weight: bold;
     font-family:inherit !important;
