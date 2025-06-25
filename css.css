@@ -442,15 +442,17 @@ input[type=number] {
 
 }
 .z{
-    padding-right:20px;
-    padding-left:20px;
-    background: linear-gradient(to top left, rgba(68, 30, 94, 0.2) 0%, rgb(47, 0, 70) 100%) !important;
-
+    padding:6px;
+    transition: all .5s;
+    padding-right:15px;
+    padding-left:15px;
+    background: linear-gradient(to top left, rgba(68, 30, 94, 0.2) 0%, rgb(55, 0, 70) 100%) !important;
+    border:2px solid rgb(69, 36, 92);
 }
 .z:hover{
     margin-right:5px;
     margin-left: 5px;
-    box-shadow: 0 0 60px rgb(182, 94, 231,.2);
+    box-shadow: 0 0 60px rgb(107, 55, 136);
 }
 
 .btnh{
@@ -482,7 +484,8 @@ p{
 
 .file:hover{
     margin-left:5px;
-    padding:5px;
+    margin-right:5px;
+    scale:1.06;
 
 }
 .scrollto{
@@ -582,6 +585,7 @@ html, body {
 
 .gemini:hover{
     margin-left:5px;
-    padding:5px;
+    margin-right:5px;
+    scale:1.06;
 
 }
